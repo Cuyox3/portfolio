@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio de Arturo Cid Ruiz — Desarrollador Web Jr. Full Stack. Proyectos, certificaciones y habilidades en desarrollo web, IoT y tecnología.">
+  <meta name="author" content="Arturo Cid Ruiz">
+  <meta name="keywords" content="portfolio, desarrollador web, full stack, frontend, backend, Arturo Cid Ruiz">
+  <title>Arturo Cid Ruiz | Portfolio — Desarrollador Web Jr.</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <!-- ========== PRELOADER ========== -->
+  <div id="preloader" class="preloader">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top" id="mainNavbar">
+    <div class="container">
+      <a class="navbar-brand" href="#">Arturo<span class="brand-dot">.</span>dev</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Menú de navegación">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav gap-1">
+          <li class="nav-item">
+            <a class="nav-link active" href="#hero">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">Sobre mí</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#skills">Habilidades</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#projects">Proyectos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#certifications">Certificados</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section id="hero" class="hero-section">
+    <canvas id="particles-canvas"></canvas>
+    <div class="container hero-content">
+      <div class="row align-items-center min-vh-100">
+        <div class="col-lg-7">
+          <span class="hero-greeting fade-up">👋 Hola, soy</span>
+          <h1 class="hero-name fade-up" style="transition-delay: 0.1s;">
+            Arturo <span class="gradient-text">Cid Ruiz</span>
+          </h1>
+          <p class="hero-role fade-up" style="transition-delay: 0.2s;">
+            <span id="typed-text"></span><span class="typed-cursor">|</span>
+          </p>
+          <p class="text-muted mb-4 fade-up" style="transition-delay: 0.3s; max-width: 520px;">
+            Apasionado por la tecnología, el desarrollo web y la creación de soluciones digitales.
+            Construyendo experiencias que importan, una línea de código a la vez.
+          </p>
+          <div class="hero-cta fade-up" style="transition-delay: 0.4s;">
+            <a href="#projects" class="btn btn-primary-custom">
+              <i class="bi bi-rocket-takeoff me-2"></i>Ver Proyectos
+            </a>
+            <a href="#contact" class="btn btn-outline-custom">
+              <i class="bi bi-envelope me-2"></i>Contáctame
+            </a>
+          </div>
+
+          <!-- Stats rápidos -->
+          <div class="row mt-5 fade-up" style="transition-delay: 0.5s;">
+            <div class="col-4">
+              <h3 class="mb-0 gradient-text fw-bold"><span class="counter" data-target="5">0</span>+</h3>
+              <small class="text-muted">Proyectos</small>
+            </div>
+            <div class="col-4">
+              <h3 class="mb-0 gradient-text fw-bold"><span class="counter" data-target="15">0</span>+</h3>
+              <small class="text-muted">Certificados</small>
+            </div>
+            <div class="col-4">
+              <h3 class="mb-0 gradient-text fw-bold"><span class="counter" data-target="10">0</span>+</h3>
+              <small class="text-muted">Tecnologías</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5 text-center d-none d-lg-block">
+          <div class="hero-illustration fade-right" style="transition-delay: 0.3s;">
+            <!-- Ilustración SVG decorativa -->
+            <svg viewBox="0 0 400 400" width="380" height="380" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#00d4aa;stop-opacity:0.3" />
+                  <stop offset="100%" style="stop-color:#7b61ff;stop-opacity:0.3" />
+                </linearGradient>
+                <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#00d4aa;stop-opacity:0.8" />
+                  <stop offset="100%" style="stop-color:#7b61ff;stop-opacity:0.8" />
+                </linearGradient>
+              </defs>
+              <!-- Círculo principal -->
+              <circle cx="200" cy="200" r="150" fill="url(#grad1)" stroke="url(#grad2)" stroke-width="2">
+                <animate attributeName="r" values="148;155;148" dur="4s" repeatCount="indefinite"/>
+              </circle>
+              <!-- Terminal/código icono -->
+              <rect x="130" y="130" width="140" height="100" rx="12" fill="rgba(10,10,15,0.8)" stroke="url(#grad2)" stroke-width="1.5"/>
+              <!-- Barra superior terminal -->
+              <rect x="130" y="130" width="140" height="25" rx="12" fill="rgba(0,212,170,0.15)"/>
+              <circle cx="148" cy="142.5" r="4" fill="#ff6b6b"/>
+              <circle cx="162" cy="142.5" r="4" fill="#ffd93d"/>
+              <circle cx="176" cy="142.5" r="4" fill="#00d4aa"/>
+              <!-- Líneas de código -->
+              <rect x="145" y="168" width="50" height="4" rx="2" fill="#00d4aa" opacity="0.8">
+                <animate attributeName="width" values="50;70;50" dur="3s" repeatCount="indefinite"/>
+              </rect>
+              <rect x="145" y="180" width="80" height="4" rx="2" fill="#7b61ff" opacity="0.6">
+                <animate attributeName="width" values="80;60;80" dur="4s" repeatCount="indefinite"/>
+              </rect>
+              <rect x="145" y="192" width="60" height="4" rx="2" fill="#e4e4e7" opacity="0.3">
+                <animate attributeName="width" values="60;75;60" dur="3.5s" repeatCount="indefinite"/>
+              </rect>
+              <rect x="145" y="204" width="40" height="4" rx="2" fill="#00d4aa" opacity="0.5">
+                <animate attributeName="width" values="40;55;40" dur="2.5s" repeatCount="indefinite"/>
+              </rect>
+              <!-- Órbitas -->
+              <circle cx="200" cy="200" r="180" fill="none" stroke="rgba(0,212,170,0.1)" stroke-width="1" stroke-dasharray="8 12">
+                <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="30s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="200" cy="200" r="195" fill="none" stroke="rgba(123,97,255,0.08)" stroke-width="1" stroke-dasharray="4 16">
+                <animateTransform attributeName="transform" type="rotate" from="360 200 200" to="0 200 200" dur="25s" repeatCount="indefinite"/>
+              </circle>
+              <!-- Puntos orbitales -->
+              <circle cx="200" cy="20" r="5" fill="#00d4aa" opacity="0.7">
+                <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="30s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="380" cy="200" r="4" fill="#7b61ff" opacity="0.6">
+                <animateTransform attributeName="transform" type="rotate" from="360 200 200" to="0 200 200" dur="25s" repeatCount="indefinite"/>
+              </circle>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SOBRE MÍ ========== -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <h2 class="section-title fade-up">Sobre <span class="highlight">Mí</span></h2>
+      <p class="section-subtitle fade-up">Conóceme un poco más y descubre lo que me motiva</p>
+
+      <div class="row align-items-center g-5">
+        <div class="col-lg-5 text-center fade-left">
+          <div class="about-img-wrapper">
+            <!-- Placeholder SVG avatar -->
+            <svg width="320" height="320" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" style="border-radius: 20px; border: 3px solid rgba(255,255,255,0.06);">
+              <rect width="320" height="320" rx="20" fill="#1a1a2e"/>
+              <circle cx="160" cy="120" r="60" fill="rgba(0,212,170,0.15)" stroke="rgba(0,212,170,0.4)" stroke-width="2"/>
+              <circle cx="160" cy="120" r="40" fill="rgba(0,212,170,0.2)"/>
+              <text x="160" y="130" text-anchor="middle" font-size="40" fill="#00d4aa">👨‍💻</text>
+              <rect x="100" y="200" width="120" height="15" rx="7" fill="rgba(0,212,170,0.2)"/>
+              <rect x="80" y="225" width="160" height="10" rx="5" fill="rgba(255,255,255,0.05)"/>
+              <rect x="90" y="245" width="140" height="10" rx="5" fill="rgba(255,255,255,0.03)"/>
+              <text x="160" y="290" text-anchor="middle" font-size="14" fill="rgba(0,212,170,0.6)" font-family="Inter, sans-serif">Arturo Cid R.</text>
+            </svg>
+          </div>
+        </div>
+        <div class="col-lg-7 fade-right">
+          <div class="about-text">
+            <h4 class="mb-3">Desarrollador Web Jr. <span class="gradient-text">Full Stack</span></h4>
+            <p class="mb-4">
+              Soy un desarrollador web junior apasionado por construir soluciones digitales funcionales y atractivas.
+              Con experiencia en HTML, CSS, JavaScript, Bootstrap y tecnologías del lado del servidor,
+              me especializo en crear sitios web responsivos y experiencias de usuario memorables.
+              Siempre estoy aprendiendo y buscando nuevos retos.
+            </p>
+
+            <div class="row g-3 mb-4">
+              <div class="col-sm-6">
+                <div class="info-item">
+                  <div class="info-icon"><i class="bi bi-person"></i></div>
+                  <div>
+                    <div class="info-label">Nombre</div>
+                    <div class="info-value">Arturo Cid Ruiz</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="info-item">
+                  <div class="info-icon"><i class="bi bi-geo-alt"></i></div>
+                  <div>
+                    <div class="info-label">Ubicación</div>
+                    <div class="info-value">México</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="info-item">
+                  <div class="info-icon"><i class="bi bi-mortarboard"></i></div>
+                  <div>
+                    <div class="info-label">Formación</div>
+                    <div class="info-value">Tecnologías de la Información</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="info-item">
+                  <div class="info-icon"><i class="bi bi-briefcase"></i></div>
+                  <div>
+                    <div class="info-label">Enfoque</div>
+                    <div class="info-value">Full Stack & IoT</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <a href="docs/Arturo Cid Ruiz.pdf" target="_blank" class="btn btn-primary-custom">
+              <i class="bi bi-download me-2"></i>Descargar CV
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== HABILIDADES ========== -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title fade-up">Mis <span class="highlight">Habilidades</span></h2>
+      <p class="section-subtitle fade-up">Tecnologías y herramientas que utilizo en el día a día</p>
+
+      <div class="row g-4">
+        <!-- HTML -->
+        <div class="col-lg-3 col-md-4 col-6 fade-up" style="transition-delay: 0.05s;">
+          <div class="skill-card">
+            <div class="skill-icon"><i class="bi bi-filetype-html"></i></div>
+            <h5>HTML5</h5>
+            <p>Estructura semántica y accesible</p>
+          </div>
+        </div>
+        <!-- CSS -->
+        <div class="col-lg-3 col-md-4 col-6 fade-up" style="transition-delay: 0.1s;">
+          <div class="skill-card">
+            <div class="skill-icon"><i class="bi bi-filetype-css"></i></div>
+            <h5>CSS3</h5>
+            <p>Estilos modernos y responsivos</p>
+          </div>
+        </div>
+        <!-- JavaScript -->
+        <div class="col-lg-3 col-md-4 col-6 fade-up" style="transition-delay: 0.15s;">
+          <div class="skill-card">
+            <div class="skill-icon"><i class="bi bi-filetype-js"></i></div>
+            <h5>JavaScript</h5>
+            <p>Lógica e interactividad</p>
+          </div>
+        </div>
+        <!-- Bootstrap -->
+        <div class="col-lg-3 col-md-4 col-6 fade-up" style="transition-delay: 0.2s;">
+          <div class="skill-card">
+            <div class="skill-icon"><i class="bi bi-bootstrap"></i></div>
+            <h5>Bootstrap</h5>
+            <p>Framework CSS responsivo</p>
+          </div>
+        </div>
+        <!-- Docker -->
+        <div class="col-lg-3 col-md-4 col-6 fade-up" style="transition-delay: 0.25s;">
+          <div class="skill-card">
+            <div class="skill-icon"><i class="bi bi-box-seam"></i></div>
+            <h5>Docker</h5>
+            <p>Contenedores y despliegue</p>
+          </div>
+        </div>
+        <!-- Linux -->
+        <div class="col-lg-3 col-md-4 col-6 fade-up" style="transition-delay: 0.3s;">
+          <div class="skill-card">
+            <div class="skill-icon"><i class="bi bi-terminal"></i></div>
+            <h5>Linux</h5>
+            <p>Administración de servidores</p>
+          </div>
+        </div>
+        <!-- IoT -->
+        <div class="col-lg-3 col-md-4 col-6 fade-up" style="transition-delay: 0.35s;">
+          <div class="skill-card">
+            <div class="skill-icon"><i class="bi bi-cpu"></i></div>
+            <h5>IoT</h5>
+            <p>Raspberry Pi & sensores</p>
+          </div>
+        </div>
+        <!-- Redis -->
+        <div class="col-lg-3 col-md-4 col-6 fade-up" style="transition-delay: 0.4s;">
+          <div class="skill-card">
+            <div class="skill-icon"><i class="bi bi-database"></i></div>
+            <h5>Redis</h5>
+            <p>Base de datos en memoria</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROYECTOS ========== -->
+  <section id="projects" class="about-section">
+    <div class="container">
+      <h2 class="section-title fade-up">Mis <span class="highlight">Proyectos</span></h2>
+      <p class="section-subtitle fade-up">Sitios web y aplicaciones que he desarrollado o en los que he participado</p>
+
+      <div class="row g-4">
+        <!-- Proyecto 1 -->
+        <div class="col-lg-4 col-md-6 fade-up" style="transition-delay: 0.05s;">
+          <div class="project-card">
+            <div class="project-img-wrapper">
+              <img src="src/project-placeholder.svg" alt="Inversión Inmobiliaria" class="project-img" loading="lazy"
+                   onerror="this.style.background='linear-gradient(135deg,#1a1a2e,#16213e)'; this.style.display='block';">
+              <div class="project-overlay">
+                <a href="https://inversioninmobiliaria.casa/" target="_blank" class="btn btn-primary-custom btn-sm">
+                  <i class="bi bi-box-arrow-up-right me-1"></i>Ver sitio
+                </a>
+              </div>
+            </div>
+            <div class="project-body">
+              <h5>Inversión Inmobiliaria</h5>
+              <p>Portal de inversión inmobiliaria con información de propiedades y oportunidades de inversión.</p>
+              <div>
+                <span class="project-tag">HTML</span>
+                <span class="project-tag">CSS</span>
+                <span class="project-tag">JavaScript</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyecto 2 -->
+        <div class="col-lg-4 col-md-6 fade-up" style="transition-delay: 0.1s;">
+          <div class="project-card">
+            <div class="project-img-wrapper">
+              <img src="src/project-placeholder.svg" alt="MAF Automation" class="project-img" loading="lazy"
+                   onerror="this.style.background='linear-gradient(135deg,#1a1a2e,#16213e)'; this.style.display='block';">
+              <div class="project-overlay">
+                <a href="https://mafautomation.com.mx/" target="_blank" class="btn btn-primary-custom btn-sm">
+                  <i class="bi bi-box-arrow-up-right me-1"></i>Ver sitio
+                </a>
+              </div>
+            </div>
+            <div class="project-body">
+              <h5>MAF Automation</h5>
+              <p>Sitio web corporativo para empresa de automatización industrial y soluciones tecnológicas.</p>
+              <div>
+                <span class="project-tag">HTML</span>
+                <span class="project-tag">CSS</span>
+                <span class="project-tag">Bootstrap</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyecto 3 -->
+        <div class="col-lg-4 col-md-6 fade-up" style="transition-delay: 0.15s;">
+          <div class="project-card">
+            <div class="project-img-wrapper">
+              <img src="src/project-placeholder.svg" alt="Empaques y Maquinados N" class="project-img" loading="lazy"
+                   onerror="this.style.background='linear-gradient(135deg,#1a1a2e,#16213e)'; this.style.display='block';">
+              <div class="project-overlay">
+                <a href="https://empaquesymaquinadosn.com/" target="_blank" class="btn btn-primary-custom btn-sm">
+                  <i class="bi bi-box-arrow-up-right me-1"></i>Ver sitio
+                </a>
+              </div>
+            </div>
+            <div class="project-body">
+              <h5>Empaques y Maquinados N</h5>
+              <p>Página web para empresa de empaques y maquinados industriales con catálogo de servicios.</p>
+              <div>
+                <span class="project-tag">HTML</span>
+                <span class="project-tag">CSS</span>
+                <span class="project-tag">JavaScript</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyecto 4 -->
+        <div class="col-lg-4 col-md-6 fade-up" style="transition-delay: 0.2s;">
+          <div class="project-card">
+            <div class="project-img-wrapper">
+              <img src="src/project-placeholder.svg" alt="CuyoX3" class="project-img" loading="lazy"
+                   onerror="this.style.background='linear-gradient(135deg,#1a1a2e,#16213e)'; this.style.display='block';">
+              <div class="project-overlay">
+                <a href="https://cuyox3.com/" target="_blank" class="btn btn-primary-custom btn-sm">
+                  <i class="bi bi-box-arrow-up-right me-1"></i>Ver sitio
+                </a>
+              </div>
+            </div>
+            <div class="project-body">
+              <h5>CuyoX3</h5>
+              <p>Plataforma digital con servicios web y soluciones tecnológicas personalizadas.</p>
+              <div>
+                <span class="project-tag">HTML</span>
+                <span class="project-tag">CSS</span>
+                <span class="project-tag">Bootstrap</span>
+                <span class="project-tag">JS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyecto 5 -->
+        <div class="col-lg-4 col-md-6 fade-up" style="transition-delay: 0.25s;">
+          <div class="project-card">
+            <div class="project-img-wrapper">
+              <img src="src/project-placeholder.svg" alt="Data Proyectos" class="project-img" loading="lazy"
+                   onerror="this.style.background='linear-gradient(135deg,#1a1a2e,#16213e)'; this.style.display='block';">
+              <div class="project-overlay">
+                <a href="https://dataproyectos.mx/" target="_blank" class="btn btn-primary-custom btn-sm">
+                  <i class="bi bi-box-arrow-up-right me-1"></i>Ver sitio
+                </a>
+              </div>
+            </div>
+            <div class="project-body">
+              <h5>Data Proyectos</h5>
+              <p>Sitio web de gestión de datos y proyectos tecnológicos con enfoque empresarial.</p>
+              <div>
+                <span class="project-tag">HTML</span>
+                <span class="project-tag">CSS</span>
+                <span class="project-tag">JavaScript</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CERTIFICACIONES ========== -->
+  <section id="certifications" class="cert-section">
+    <div class="container">
+      <h2 class="section-title fade-up">Mis <span class="highlight">Certificaciones</span></h2>
+      <p class="section-subtitle fade-up">Formación continua y certificaciones obtenidas</p>
+
+      <div class="row g-4">
+        <!-- Certificado JavaScript -->
+        <div class="col-lg-4 col-md-6 fade-up" style="transition-delay: 0.05s;">
+          <div class="cert-card">
+            <div class="cert-icon"><i class="bi bi-award"></i></div>
+            <h6>JavaScript</h6>
+            <p class="cert-issuer">Certificación en desarrollo con JavaScript</p>
+            <a href="docs/_Certificado JavaScript .pdf" target="_blank" class="btn-view-cert">
+              Ver certificado <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Certificado Backend CiC -->
+        <div class="col-lg-4 col-md-6 fade-up" style="transition-delay: 0.1s;">
+          <div class="cert-card">
+            <div class="cert-icon"><i class="bi bi-server"></i></div>
+            <h6>Backend — CiC</h6>
+            <p class="cert-issuer">Certificado en desarrollo Backend</p>
+            <a href="docs/Certificado_Backend_CiC.pdf" target="_blank" class="btn-view-cert">
+              Ver certificado <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Certificado Docker -->
+        <div class="col-lg-4 col-md-6 fade-up" style="transition-delay: 0.15s;">
+          <div class="cert-card">
+            <div class="cert-icon"><i class="bi bi-box-seam"></i></div>
+            <h6>Docker</h6>
+            <p class="cert-issuer">Certificación en contenedores Docker</p>
+            <a href="docs/Certificado_DOCKER.pdf" target="_blank" class="btn-view-cert">
+              Ver certificado <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Certificado IoT -->
+        <div class="col-lg-4 col-md-6 fade-up" style="transition-delay: 0.2s;">
+          <div class="cert-card">
+            <div class="cert-icon"><i class="bi bi-cpu"></i></div>
+            <h6>IoT — Internet of Things</h6>
+            <p class="cert-issuer">Certificado en Internet de las Cosas</p>
+            <a href="docs/IoT_Certificado.pdf" target="_blank" class="btn-view-cert">
+              Ver certificado <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Certificado Raspberry Pi & IoT -->
+        <div class="col-lg-4 col-md-6 fade-up" style="transition-delay: 0.25s;">
+          <div class="cert-card">
+            <div class="cert-icon"><i class="bi bi-motherboard"></i></div>
+            <h6>Raspberry Pi & IoT</h6>
+            <p class="cert-issuer">Certificación en Raspberry Pi y proyectos IoT</p>
+            <a href="docs/Certificado_Raspberry-IOT.pdf" target="_blank" class="btn-view-cert">
+              Ver certificado <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Certificado Redis -->
+        <div class="col-lg-4 col-md-6 fade-up" style="transition-delay: 0.3s;">
+          <div class="cert-card">
+            <div class="cert-icon"><i class="bi bi-database"></i></div>
+            <h6>Redis</h6>
+            <p class="cert-issuer">Certificado en base de datos Redis</p>
+            <a href="docs/Redis_Certificado.pdf" target="_blank" class="btn-view-cert">
+              Ver certificado <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Certificado Linux -->
+        <div class="col-lg-4 col-md-6 fade-up" style="transition-delay: 0.35s;">
+          <div class="cert-card">
+            <div class="cert-icon"><i class="bi bi-terminal"></i></div>
+            <h6>Linux</h6>
+            <p class="cert-issuer">Curso de administración Linux</p>
+            <a href="docs/Curso de Linux.pdf" target="_blank" class="btn-view-cert">
+              Ver certificado <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Certificado SIC -->
+        <div class="col-lg-4 col-md-6 fade-up" style="transition-delay: 0.4s;">
+          <div class="cert-card">
+            <div class="cert-icon"><i class="bi bi-shield-check"></i></div>
+            <h6>SIC — Seguridad Informática</h6>
+            <p class="cert-issuer">Certificado en seguridad de la información</p>
+            <a href="docs/Certificado_SIC.pdf" target="_blank" class="btn-view-cert">
+              Ver certificado <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Líder JA Alumni -->
+        <div class="col-lg-4 col-md-6 fade-up" style="transition-delay: 0.45s;">
+          <div class="cert-card">
+            <div class="cert-icon"><i class="bi bi-people"></i></div>
+            <h6>Líder JA Alumni</h6>
+            <p class="cert-issuer">Reconocimiento de liderazgo JA Alumni</p>
+            <a href="docs/Líder_Ja_Alumni.pdf" target="_blank" class="btn-view-cert">
+              Ver certificado <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- YPP Alumni -->
+        <div class="col-lg-4 col-md-6 fade-up" style="transition-delay: 0.5s;">
+          <div class="cert-card">
+            <div class="cert-icon"><i class="bi bi-trophy"></i></div>
+            <h6>YPP Alumni</h6>
+            <p class="cert-issuer">Reconocimiento Young Professional Program</p>
+            <a href="docs/Reconocimiento YPP Alumn-31.pdf" target="_blank" class="btn-view-cert">
+              Ver certificado <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Reconocimiento FGR -->
+        <div class="col-lg-4 col-md-6 fade-up" style="transition-delay: 0.55s;">
+          <div class="cert-card">
+            <div class="cert-icon"><i class="bi bi-star"></i></div>
+            <h6>Reconocimiento FGR</h6>
+            <p class="cert-issuer">Reconocimiento Diciembre 2024</p>
+            <a href="docs/Reconocimiento FGR Diciembre 2024.pdf" target="_blank" class="btn-view-cert">
+              Ver certificado <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Estímulos -->
+        <div class="col-lg-4 col-md-6 fade-up" style="transition-delay: 0.6s;">
+          <div class="cert-card">
+            <div class="cert-icon"><i class="bi bi-gift"></i></div>
+            <h6>Estímulos Laborales</h6>
+            <p class="cert-issuer">Reconocimientos por desempeño 2024–2025</p>
+            <a href="docs/Estimulo_Junio_2025.pdf" target="_blank" class="btn-view-cert">
+              Ver más reciente <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACTO ========== -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2 class="section-title fade-up">Ponte en <span class="highlight">Contacto</span></h2>
+      <p class="section-subtitle fade-up">¿Tienes un proyecto en mente? ¡Hablemos!</p>
+
+      <div class="row g-5">
+        <div class="col-lg-5 fade-left">
+          <h4 class="mb-4">Información de contacto</h4>
+
+          <div class="contact-info-item">
+            <div class="ci-icon"><i class="bi bi-envelope"></i></div>
+            <div>
+              <div class="ci-label">Email</div>
+              <div class="ci-value">contacto@cuyox3.com</div>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="ci-icon"><i class="bi bi-geo-alt"></i></div>
+            <div>
+              <div class="ci-label">Ubicación</div>
+              <div class="ci-value">México</div>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="ci-icon"><i class="bi bi-globe2"></i></div>
+            <div>
+              <div class="ci-label">Sitio web</div>
+              <div class="ci-value"><a href="https://cuyox3.com" target="_blank">cuyox3.com</a></div>
+            </div>
+          </div>
+
+          <hr class="my-4" style="border-color: var(--color-border);">
+
+          <h6 class="text-muted mb-3">Encuéntrame en</h6>
+          <div class="d-flex gap-2">
+            <a href="#" class="social-link" aria-label="GitHub"><i class="bi bi-github"></i></a>
+            <a href="#" class="social-link" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="social-link" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-7 fade-right">
+          <div class="contact-card">
+            <form id="contactForm">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="contactName" class="form-label">Nombre</label>
+                  <input type="text" class="form-control" id="contactName" placeholder="Tu nombre" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="contactEmail" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="contactEmail" placeholder="tu@email.com" required>
+                </div>
+                <div class="col-12">
+                  <label for="contactSubject" class="form-label">Asunto</label>
+                  <input type="text" class="form-control" id="contactSubject" placeholder="¿De qué se trata?">
+                </div>
+                <div class="col-12">
+                  <label for="contactMessage" class="form-label">Mensaje</label>
+                  <textarea class="form-control" id="contactMessage" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary-custom w-100">
+                    <i class="bi bi-send me-2"></i>Enviar Mensaje
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container text-center">
+      <div class="mb-3">
+        <a href="#" class="social-link" aria-label="GitHub"><i class="bi bi-github"></i></a>
+        <a href="#" class="social-link" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a href="#" class="social-link" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+        <a href="#" class="social-link" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+      </div>
+      <p class="footer-text mb-1">
+        Diseñado y desarrollado con <span style="color: var(--color-accent);">❤</span> por <strong>Arturo Cid Ruiz</strong>
+      </p>
+      <p class="footer-text">&copy; 2025 Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- ========== BACK TO TOP ========== -->
+  <button id="backToTop" class="back-to-top" aria-label="Volver arriba">
+    <i class="bi bi-chevron-up"></i>
+  </button>
+
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JS -->
+  <script src="scripts/main.js"></script>
+</body>
+</html>
