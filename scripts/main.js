@@ -266,4 +266,211 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // ---------- Formulario de contacto ----------
+  var contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var name = document.getElementById('contactName').value.trim();
+      var email = document.getElementById('contactEmail').value.trim();
+      var subject = document.getElementById('contactSubject').value.trim();
+      var message = document.getElementById('contactMessage').value.trim();
+
+      if (!name || !email || !message) {
+        showToast('Por favor completa todos los campos requeridos.', 'error');
+        return;
+      }
+
+      // Simulación de envío (puedes reemplazar con tu endpoint real)
+      var submitBtn = contactForm.querySelector('button[type="submit"]');
+      var originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="bi bi-hourglass-split me-2"></i>Enviando...';
+      submitBtn.disabled = true;
+
+      setTimeout(function () {
+        showToast('¡Mensaje enviado correctamente! Te responderé pronto. 🚀', 'success');
+        contactForm.reset();
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }, 1500);
+    });
+  }
+
+  // ---------- Iframe de proyectos: loading y fallback ----------
+  var projectIframes = document.querySelectorAll('.project-iframe-wrapper iframe');
+  projectIframes.forEach(function (iframe) {
+    var wrapper = iframe.closest('.project-iframe-wrapper');
+    var loading = wrapper.querySelector('.project-iframe-loading');
+    var timeoutId;
+
+    // Timeout de 8 segundos para fallback
+    timeoutId = setTimeout(function () {
+      if (loading && !loading.classList.contains('hidden')) {
+        showIframeFallback(wrapper, iframe);
+      }
+    }, 8000);
+
+    iframe.addEventListener('load', function () {
+      clearTimeout(timeoutId);
+      iframe.classList.add('loaded');
+      if (loading) {
+        loading.classList.add('hidden');
+      }
+    });
+
+    iframe.addEventListener('error', function () {
+      clearTimeout(timeoutId);
+      showIframeFallback(wrapper, iframe);
+    });
+  });
+
+  function showIframeFallback(wrapper, iframe) {
+    var loading = wrapper.querySelector('.project-iframe-loading');
+    if (loading) loading.classList.add('hidden');
+    
+    // Solo mostrar fallback si no hay ya uno
+    if (!wrapper.querySelector('.project-iframe-fallback')) {
+      var fallback = document.createElement('div');
+      fallback.className = 'project-iframe-fallback';
+      fallback.innerHTML = '<i class="bi bi-globe2"></i><span>Vista previa no disponible</span>';
+      wrapper.appendChild(fallback);
+    }
+  }
+
+  // ---------- PDF Modal ----------
+  var pdfModal = document.getElementById('pdfModal');
+  if (pdfModal) {
+    // Cerrar con click fuera del contenedor
+    pdfModal.addEventListener('click', function (e) {
+      if (e.target === pdfModal) {
+        closePdfModal();
+      }
+    });
+
+    // Cerrar con Escape
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && pdfModal.classList.contains('active')) {
+        closePdfModal();
+      }
+    });
+  }
+
 });
+
+// ---------- Funciones globales ----------
+
+/**
+ * Abre el modal con visor de PDF o imagen
+ * @param {string} url - Ruta al archivo PDF o imagen
+ * @param {string} title - Título a mostrar en el modal
+ */
+function openPdfModal(url, title) {
+  var modal = document.getElementById('pdfModal');
+  var modalTitle = document.getElementById('pdfModalTitle');
+  var modalBody = document.getElementById('pdfModalBody');
+  var modalLoading = document.getElementById('pdfModalLoading');
+  var modalDownload = document.getElementById('pdfModalDownload');
+  var modalNewTab = document.getElementById('pdfModalNewTab');
+
+  if (!modal || !modalBody) return;
+
+  // Limpiar contenido anterior
+  var oldContent = modalBody.querySelector('iframe, img');
+  if (oldContent) oldContent.remove();
+
+  // Mostrar loading
+  if (modalLoading) modalLoading.classList.remove('hidden');
+
+  // Configurar título
+  if (modalTitle) {
+    modalTitle.innerHTML = '<i class="bi bi-file-earmark-text"></i> ' + title;
+  }
+
+  // Configurar botones
+  if (modalDownload) modalDownload.setAttribute('href', url);
+  if (modalNewTab) modalNewTab.setAttribute('href', url);
+
+  // Detectar si es imagen o PDF
+  var isImage = /\.(jpe?g|png|gif|webp|svg)$/i.test(url);
+
+  if (isImage) {
+    var img = document.createElement('img');
+    img.src = url;
+    img.alt = title;
+    img.onload = function () {
+      if (modalLoading) modalLoading.classList.add('hidden');
+    };
+    img.onerror = function () {
+      if (modalLoading) modalLoading.classList.add('hidden');
+    };
+    modalBody.appendChild(img);
+    if (modalTitle) {
+      modalTitle.innerHTML = '<i class="bi bi-image"></i> ' + title;
+    }
+  } else {
+    var iframe = document.createElement('iframe');
+    iframe.src = url;
+    iframe.title = title;
+    iframe.onload = function () {
+      if (modalLoading) modalLoading.classList.add('hidden');
+    };
+    modalBody.appendChild(iframe);
+  }
+
+  // Mostrar modal
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+/**
+ * Cierra el modal de PDF
+ */
+function closePdfModal() {
+  var modal = document.getElementById('pdfModal');
+  if (!modal) return;
+
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+
+  // Limpiar contenido después de la animación
+  setTimeout(function () {
+    var modalBody = document.getElementById('pdfModalBody');
+    if (modalBody) {
+      var content = modalBody.querySelector('iframe, img');
+      if (content) content.remove();
+    }
+  }, 350);
+}
+
+/**
+ * Muestra una notificación toast
+ * @param {string} message - Mensaje a mostrar
+ * @param {string} type - Tipo: 'success' o 'error'
+ */
+function showToast(message, type) {
+  // Remover toast anterior si existe
+  var existing = document.querySelector('.toast-notification');
+  if (existing) existing.remove();
+
+  var toast = document.createElement('div');
+  toast.className = 'toast-notification ' + (type || 'success');
+
+  var icon = type === 'error' ? 'bi-exclamation-circle' : 'bi-check-circle-fill';
+  toast.innerHTML = '<i class="bi ' + icon + '"></i><span>' + message + '</span>';
+
+  document.body.appendChild(toast);
+
+  // Trigger show
+  requestAnimationFrame(function () {
+    toast.classList.add('show');
+  });
+
+  // Auto-hide
+  setTimeout(function () {
+    toast.classList.remove('show');
+    setTimeout(function () {
+      toast.remove();
+    }, 400);
+  }, 4000);
+}
