@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var p = particles[i];
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(0, 212, 170, ' + p.opacity + ')';
+        ctx.fillStyle = 'rgba(123, 97, 255, ' + p.opacity + ')';
         ctx.fill();
 
         // Conectar partículas cercanas
@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function () {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = 'rgba(0, 212, 170, ' + (0.08 * (1 - dist / 150)) + ')';
+            ctx.strokeStyle = 'rgba(123, 97, 255, ' + (0.08 * (1 - dist / 150)) + ')';
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }

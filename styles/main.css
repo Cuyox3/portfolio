@@ -11,17 +11,17 @@
 :root {
   /* Colores primarios */
   --color-bg: #0a0a0f;
-  --color-bg-alt: #12121a;
+  --color-bg-alt: #181826;
   --color-bg-card: #1a1a2e;
   --color-bg-card-hover: #22223a;
   --color-surface: #16213e;
 
   /* Accent */
-  --color-primary: #00d4aa;
-  --color-primary-rgb: 0, 212, 170;
-  --color-primary-dark: #00a88a;
-  --color-secondary: #7b61ff;
-  --color-secondary-rgb: 123, 97, 255;
+  --color-primary: #7b61ff;
+  --color-primary-rgb: 123, 97, 255;
+  --color-primary-dark: #5f47e0;
+  --color-secondary: #00d4aa;
+  --color-secondary-rgb: 0, 212, 170;
   --color-accent: #ff6b6b;
 
   /* Texto */
@@ -31,7 +31,7 @@
 
   /* Bordes */
   --color-border: rgba(255, 255, 255, 0.06);
-  --color-border-hover: rgba(0, 212, 170, 0.3);
+  --color-border-hover: rgba(123, 97, 255, 0.3);
 
   /* Gradientes */
   --gradient-primary: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
@@ -226,7 +226,7 @@ section {
 }
 
 .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0,212,170,0.8)' stroke-linecap='round' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(123,97,255,0.8)' stroke-linecap='round' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
 }
 
 /* ---------- Hero Section ---------- */
@@ -377,6 +377,7 @@ section {
 /* ---------- About / Sobre mí ---------- */
 .about-section {
   background: var(--color-bg-alt);
+  border-top: 1px solid var(--color-border);
 }
 
 .about-img-wrapper {
@@ -562,7 +563,8 @@ section {
 
 /* ---------- Certificados ---------- */
 .cert-section {
-  background: var(--color-bg-alt);
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
 }
 
 .cert-card {
@@ -623,7 +625,8 @@ section {
 
 /* ---------- Contacto ---------- */
 .contact-section {
-  background: var(--color-bg);
+  background: var(--color-bg-alt);
+  border-top: 1px solid var(--color-border);
 }
 
 .contact-card {
@@ -696,7 +699,7 @@ section {
 
 /* ---------- Footer ---------- */
 .footer {
-  background: var(--color-bg-alt);
+  background: var(--color-bg);
   border-top: 1px solid var(--color-border);
   padding: 3rem 0 1.5rem;
 }
@@ -862,7 +865,8 @@ section {
 
 /* ---------- Sección Proyectos (fondo propio) ---------- */
 .projects-section {
-  background: var(--color-bg);
+  background: var(--color-bg-alt);
+  border-top: 1px solid var(--color-border);
 }
 
 /* ---------- Iframe Preview para Proyectos ---------- */
