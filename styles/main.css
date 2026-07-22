@@ -405,7 +405,7 @@ section {
 }
 
 .about-text p {
-  color: var(--color-text-muted);
+  color: #ffffff;
   font-size: 1.05rem;
 }
 
