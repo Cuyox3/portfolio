@@ -20,6 +20,7 @@ var PORTFOLIO_DATA = {
   //   tags         → tecnologías o tipo de proyecto
   //   image        → captura propia en assets/img/proyectos/ (opcional).
   //                  Si no hay, se genera una captura automática del sitio.
+  //   repo         → enlace al código fuente (opcional)
   //   private      → true si el sitio requiere inicio de sesión
   //   featured     → true para mostrarlo en la página principal
   //
@@ -152,26 +153,47 @@ var PORTFOLIO_DATA = {
     {
       title: 'Mafrinsa',
       url: 'https://mafrinsa.com.mx/',
+      repo: 'https://github.com/Cuyox3/Mafrinsa',
       group: 'maf',
       kind: 'Sitio corporativo',
-      description: 'Sitio corporativo de Mafrinsa.',
-      pending: true, // TODO: completar descripción, features y howItWorks
-      features: [],
-      howItWorks: [],
-      tags: ['Ingeniería']
+      description: 'Sitio corporativo de MAFRINSA, empresa de automatización industrial. Presenta sus líneas de servicio, desde la programación de PLC y robots hasta la manufactura de piezas y el mantenimiento de maquinaria.',
+      features: [
+        'Programación de PLC, integración con SCADA y programación de robots industriales',
+        'Manufactura y maquinados convencionales; maquinaria para automatizar procesos',
+        'Refaccionamiento de equipo de control y neumático, y elementos mecánicos a medida',
+        'Servicio de mantenimiento y formulario para cotizar proyectos'
+      ],
+      howItWorks: [
+        'Aplicación de una sola página (SPA) hecha con React y TypeScript, compilada con Vite.',
+        'React Router da a cada servicio su propia ruta: Manufactura, Maquinaria, Mantenimiento, Refacciones, Soportes, Nosotros y Contacto.',
+        'El diseño usa Tailwind CSS y los iconos de Lucide.'
+      ],
+      tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'React Router']
     },
 
     // ----- Otros clientes -----
     {
       title: 'Candylandia Store',
       url: 'https://candylandiastore.mx/',
+      repo: 'https://github.com/Cuyox3/candylandyastore',
       group: 'clientes',
       kind: 'Tienda en línea',
-      description: 'Tienda en línea de Candylandia.',
-      pending: true, // TODO: completar descripción, features y howItWorks
-      features: [],
-      howItWorks: [],
-      tags: ['E-commerce']
+      description: 'Tienda de dulces importados con catálogo administrable y pedidos por WhatsApp. Empezó como un sitio en HTML, CSS y JavaScript y la migré a una arquitectura con React y una API en FastAPI, para que el catálogo viva en una base de datos y los cambios del panel se publiquen al instante.',
+      features: [
+        'Catálogo de productos con categorías, etiquetas y fotos',
+        'Botón «Lo quiero» que arma el pedido por WhatsApp',
+        'Secciones de mayoreo, testimonios, preguntas frecuentes y boletín',
+        'Panel de administración con inicio de sesión para gestionar productos, categorías, etiquetas e imágenes',
+        'Exportación e importación del catálogo en Excel y PDF, y bandeja de mensajes de contacto'
+      ],
+      howItWorks: [
+        'El frontend en React 18 + Vite se compila y lo sirve Nginx dentro de un contenedor.',
+        'Una API en FastAPI (sobre Gunicorn) expone el catálogo y el panel; usa SQLAlchemy y Alembic sobre PostgreSQL.',
+        'El panel se protege con tokens JWT y contraseñas cifradas con bcrypt; las fotos se procesan con Pillow.',
+        'Todo corre con Docker Compose en un VPS, detrás de Nginx con HTTPS de Let\'s Encrypt, y se despliega con un solo script (deploy.sh).'
+      ],
+      tags: ['React', 'Vite', 'FastAPI', 'PostgreSQL', 'Docker', 'Nginx'],
+      featured: true
     },
     {
       title: 'AlfaKernel',
@@ -192,8 +214,7 @@ var PORTFOLIO_DATA = {
       description: 'Portal de inversión inmobiliaria con información de propiedades, oportunidades de inversión y asesoría personalizada.',
       features: ['Muestra propiedades y oportunidades de inversión', 'Asesoría personalizada para interesados'],
       howItWorks: [],
-      tags: ['HTML5', 'CSS3', 'JavaScript', 'Responsive'],
-      featured: true
+      tags: ['HTML5', 'CSS3', 'JavaScript', 'Responsive']
     },
     {
       title: 'Empaques y Maquinados N',

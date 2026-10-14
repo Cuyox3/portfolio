@@ -424,7 +424,8 @@
     { group: 'Acciones', icon: 'bi-copy', label: 'Copiar email', hint: 'contacto@cuyox3.com', run: function () {
       copyText('contacto@cuyox3.com').then(function () { toast('Email copiado al portapapeles', 'success'); });
     } },
-    { group: 'Acciones', icon: 'bi-github', label: 'Abrir GitHub', hint: 'cuyox3', run: function () { go('https://github.com/cuyox3', true); } },
+    { group: 'Acciones', icon: 'bi-github', label: 'Abrir GitHub', hint: 'Cuyox3', run: function () { go('https://github.com/Cuyox3', true); } },
+    { group: 'Acciones', icon: 'bi-linkedin', label: 'Abrir LinkedIn', hint: 'arturo-cid-ruiz', run: function () { go('https://www.linkedin.com/in/arturo-cid-ruiz/', true); } },
     { group: 'Acciones', icon: 'bi-terminal', label: 'Modo hacker', hint: '↑↑↓↓←→←→BA', run: function () { matrix(); } }
   ];
 
