@@ -98,13 +98,77 @@
             '<span class="project-group-icon"><i class="bi ' + escapeHtml(group.icon) + '"></i></span>' +
             '<div><h2>' + escapeHtml(group.name) + ' <span class="project-group-count">' + items.length + '</span></h2>' +
             '<p>' + escapeHtml(group.summary) + '</p></div>' +
+            (group.instagram ? '<a class="group-social" href="' + escapeHtml(group.instagram.url) + '" target="_blank" rel="noopener">' +
+              '<i class="bi bi-instagram"></i> ' + escapeHtml(group.instagram.handle) + '</a>' : '') +
           '</header>' +
           '<div class="row g-4">' +
             items.map(function (p) { return projectCard(p, { col: 'col-md-6 col-xl-4', showGroup: false }); }).join('') +
           '</div>' +
+          (group.instagram && group.reels ? '<div class="social-showcase reveal" data-social-showcase="' + escapeHtml(group.id) + '"></div>' : '') +
         '</section>';
     }).join('');
   });
+
+  // ---------- Render: CuyoX3 en Instagram ----------
+  function socialShowcase(group) {
+    var ig = group.instagram;
+    var reels = (group.reels || []).map(function (url) {
+      var safe = escapeHtml(url);
+      return '' +
+        '<div class="reel-card">' +
+          '<blockquote class="instagram-media" data-instgrm-permalink="' + safe + '?utm_source=ig_embed" data-instgrm-version="14">' +
+            '<a class="reel-fallback" href="' + safe + '" target="_blank" rel="noopener">' +
+              '<span class="reel-fallback-icon"><i class="bi bi-instagram"></i></span>' +
+              '<span class="reel-fallback-text">Ver este reel de ' + escapeHtml(group.name) + ' en Instagram</span>' +
+              '<span class="reel-fallback-cta">Abrir reel <i class="bi bi-box-arrow-up-right"></i></span>' +
+            '</a>' +
+          '</blockquote>' +
+        '</div>';
+    }).join('');
+
+    return '' +
+      '<div class="social-showcase-head">' +
+        '<span class="social-showcase-icon"><i class="bi bi-instagram"></i></span>' +
+        '<div><h3>' + escapeHtml(group.name) + ' en Instagram</h3>' +
+        '<p>Reels y publicaciones de la marca, directo desde Instagram.</p></div>' +
+        '<a class="btn btn-outline-custom btn-sm social-follow" href="' + escapeHtml(ig.url) + '" target="_blank" rel="noopener">' +
+          '<i class="bi bi-instagram me-2"></i>Seguir ' + escapeHtml(ig.handle) + '</a>' +
+      '</div>' +
+      '<div class="reel-grid">' + reels + '</div>';
+  }
+
+  $all('[data-social-showcase]').forEach(function (container) {
+    var group = groupsById[container.getAttribute('data-social-showcase')];
+    if (group && group.instagram) container.innerHTML = socialShowcase(group);
+  });
+
+  // El script oficial de Instagram solo se carga cuando los reels están por verse
+  var reelEmbeds = $all('.instagram-media');
+  if (reelEmbeds.length) {
+    var instagramLoaded = false;
+    var loadInstagram = function () {
+      if (instagramLoaded) return;
+      instagramLoaded = true;
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.instagram.com/embed.js';
+      script.onload = function () {
+        if (window.instgrm && window.instgrm.Embeds) window.instgrm.Embeds.process();
+      };
+      document.body.appendChild(script);
+    };
+    if ('IntersectionObserver' in window) {
+      var reelObserver = new IntersectionObserver(function (entries) {
+        if (entries.some(function (e) { return e.isIntersecting; })) {
+          loadInstagram();
+          reelObserver.disconnect();
+        }
+      }, { rootMargin: '300px 0px' });
+      reelEmbeds.forEach(function (el) { reelObserver.observe(el); });
+    } else {
+      loadInstagram();
+    }
+  }
 
   // Filtros de proyectos por grupo
   var projectFilterBar = $('[data-project-filters]');
