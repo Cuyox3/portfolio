@@ -68,8 +68,12 @@
             (features ? '<h4 class="project-subtitle">Qué hace</h4><ul class="project-features">' + features + '</ul>' : '') +
             (steps ? '<details class="project-how"><summary>Cómo funciona</summary><ol>' + steps + '</ol></details>' : '') +
             '<ul class="chip-list chip-list--sm">' + tags + '</ul>' +
-            '<a class="project-link" href="' + url + '" target="_blank" rel="noopener">' +
-              escapeHtml(hostname(project.url)) + ' <i class="bi bi-arrow-up-right"></i></a>' +
+            '<div class="project-links">' +
+              '<a class="project-link" href="' + url + '" target="_blank" rel="noopener">' +
+                escapeHtml(hostname(project.url)) + ' <i class="bi bi-arrow-up-right"></i></a>' +
+              (project.repo ? '<a class="project-link" href="' + escapeHtml(project.repo) + '" target="_blank" rel="noopener">' +
+                '<i class="bi bi-github"></i> Código</a>' : '') +
+            '</div>' +
           '</div>' +
         '</article>' +
       '</div>';
@@ -313,9 +317,9 @@
   var typedElement = $('#typed-text');
   if (typedElement && !prefersReducedMotion) {
     var roles = [
-      'Desarrollador Full Stack',
-      'Backend con Python y FastAPI',
-      'IoT y automatización',
+      'Backend & Cloud Engineer',
+      'Python · Django · FastAPI',
+      'Docker · Kubernetes · GCP',
       'Ingeniero en Mecatrónica'
     ];
     var roleIndex = 0;
@@ -459,16 +463,29 @@
     }
   }
 
-  // ---------- Formulario de contacto (abre el cliente de correo) ----------
+  // ---------- Formulario de contacto ----------
+  // Envía el mensaje con FormSubmit (https://formsubmit.co), un servicio pensado
+  // para sitios estáticos que no requiere API key. Si falla, abre el cliente de
+  // correo del visitante con el mensaje ya redactado.
   var contactForm = $('#contactForm');
   if (contactForm) {
+    var submitBtn = contactForm.querySelector('[type="submit"]');
+    var submitHtml = submitBtn.innerHTML;
+
+    function mailtoFallback(to, subject, body) {
+      window.location.href = 'mailto:' + to +
+        '?subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(body);
+    }
+
     contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
 
       var name = contactForm.elements.name.value.trim();
       var email = contactForm.elements.email.value.trim();
-      var subject = contactForm.elements.subject.value.trim();
+      var subject = contactForm.elements.subject.value.trim() || 'Contacto desde el portafolio';
       var message = contactForm.elements.message.value.trim();
+      var honey = contactForm.elements._honey ? contactForm.elements._honey.value : '';
 
       if (!name || !email || !message || !contactForm.elements.email.checkValidity()) {
         contactForm.classList.add('was-validated');
@@ -476,16 +493,56 @@
         return;
       }
 
+      // Campo trampa para bots: si viene lleno, se ignora en silencio
+      if (honey) {
+        contactForm.reset();
+        showToast('¡Mensaje enviado! Te responderé pronto.', 'success');
+        return;
+      }
+
       var to = contactForm.getAttribute('data-email');
       var body = message + '\n\n— ' + name + ' (' + email + ')';
-      var href = 'mailto:' + to +
-        '?subject=' + encodeURIComponent(subject || 'Contacto desde el portafolio') +
-        '&body=' + encodeURIComponent(body);
 
-      if (window.portfolioFx) window.portfolioFx.confetti(contactForm.querySelector('[type="submit"]'));
-      window.location.href = href;
-      contactForm.classList.remove('was-validated');
-      showToast('Abriendo tu aplicación de correo…', 'success');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="bi bi-hourglass-split me-2"></i>Enviando…';
+
+      var controller = window.AbortController ? new AbortController() : null;
+      var timer = controller ? setTimeout(function () { controller.abort(); }, 15000) : null;
+
+      fetch('https://formsubmit.co/ajax/' + to, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          message: message,
+          _replyto: email,
+          _subject: subject + ' — Portafolio',
+          _template: 'table',
+          _captcha: 'false'
+        }),
+        signal: controller ? controller.signal : undefined
+      })
+        .then(function (res) {
+          return res.json().catch(function () { return {}; }).then(function (data) {
+            if (!res.ok || String(data.success) !== 'true') throw new Error(data.message || 'Error al enviar');
+          });
+        })
+        .then(function () {
+          if (window.portfolioFx) window.portfolioFx.confetti(submitBtn);
+          contactForm.reset();
+          contactForm.classList.remove('was-validated');
+          showToast('¡Mensaje enviado! Te responderé pronto.', 'success');
+        })
+        .catch(function () {
+          showToast('No se pudo enviar desde aquí. Abriendo tu aplicación de correo…', 'error');
+          setTimeout(function () { mailtoFallback(to, subject, body); }, 900);
+        })
+        .then(function () {
+          if (timer) clearTimeout(timer);
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = submitHtml;
+        });
     });
   }
 

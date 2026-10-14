@@ -753,6 +753,31 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
+/* Habilidades blandas */
+.soft-skills {
+  margin-top: 2rem;
+  padding: 1.5rem 1.75rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius-lg);
+}
+
+.soft-skills h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.05rem;
+  margin-bottom: 0.6rem;
+}
+
+.soft-skills h3 i { color: var(--color-secondary); }
+
+.soft-skills p {
+  margin: 0;
+  color: var(--color-text-muted);
+  line-height: 1.9;
+}
+
 /* ---------- 10. Trayectoria (timeline) ---------- */
 .timeline-heading {
   display: flex;
@@ -831,6 +856,42 @@ h1, h2, h3, h4, h5, h6 {
 
 .timeline-item ul li { margin-bottom: 0.25rem; }
 .timeline-item ul li::marker { color: rgba(var(--color-primary-rgb), 0.7); }
+
+/* Cursos */
+.timeline-heading--courses {
+  margin-top: 2.75rem;
+}
+
+.course-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.course-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.65rem 0.9rem;
+  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition-fast);
+}
+
+.course-list li:hover { border-color: var(--color-border-hover); }
+
+.course-list small {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--color-secondary);
+}
 
 /* ---------- 11. Proyectos ---------- */
 .project-card {
@@ -971,9 +1032,15 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1rem;
 }
 
-.project-link {
+.project-links {
   margin-top: auto;
   padding-top: 1.1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+}
+
+.project-link {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
@@ -1354,6 +1421,14 @@ a.contact-info-item:hover {
 
 .contact-card .was-validated .form-control:invalid {
   border-color: var(--color-accent);
+}
+
+.form-honey {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
 }
 
 .form-note {
