@@ -113,6 +113,17 @@ var PORTFOLIO_DATA = {
       tags: ['Educación', 'Cursos']
     },
     {
+      title: 'NutriGym',
+      url: 'https://nutrigym.cuyox3.com/',
+      group: 'cuyox3',
+      kind: 'Plataforma',
+      description: 'Proyecto de CuyoX3 enfocado en nutrición y entrenamiento.',
+      pending: true, // TODO: completar descripción, features y howItWorks
+      features: [],
+      howItWorks: [],
+      tags: ['Nutrición', 'Fitness']
+    },
+    {
       title: 'CuyoX3 Aseguradora',
       url: 'https://ase-guradora.cuyox3.com/acceso/?next=/',
       group: 'cuyox3',
