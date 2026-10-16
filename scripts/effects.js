@@ -426,6 +426,7 @@
     } },
     { group: 'Acciones', icon: 'bi-github', label: 'Abrir GitHub', hint: 'Cuyox3', run: function () { go('https://github.com/Cuyox3', true); } },
     { group: 'Acciones', icon: 'bi-linkedin', label: 'Abrir LinkedIn', hint: 'arturo-cid-ruiz', run: function () { go('https://www.linkedin.com/in/arturo-cid-ruiz/', true); } },
+    { group: 'Acciones', icon: 'bi-instagram', label: 'Instagram de CuyoX3', hint: '@cuyo_x3', keywords: 'reels redes sociales', run: function () { go('https://www.instagram.com/cuyo_x3/', true); } },
     { group: 'Acciones', icon: 'bi-terminal', label: 'Modo hacker', hint: '↑↑↓↓←→←→BA', run: function () { matrix(); } }
   ];
 

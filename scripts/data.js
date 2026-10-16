@@ -26,7 +26,18 @@ var PORTFOLIO_DATA = {
   //
   //   pending      → true mientras falte completar la información (no se destaca)
   projectGroups: [
-    { id: 'cuyox3', name: 'CuyoX3', icon: 'bi-stars', summary: 'Mi emprendimiento de diseño creativo y desarrollo web. Cada producto vive en su propio subdominio de cuyox3.com.' },
+    {
+      id: 'cuyox3',
+      name: 'CuyoX3',
+      icon: 'bi-stars',
+      summary: 'Mi emprendimiento de diseño creativo y desarrollo web. Cada producto vive en su propio subdominio de cuyox3.com.',
+      // Redes de la marca: se muestran en el encabezado del grupo y en la sección de Instagram
+      instagram: { handle: '@cuyo_x3', url: 'https://www.instagram.com/cuyo_x3/' },
+      reels: [
+        'https://www.instagram.com/reel/DeS6wXkEqUk/',
+        'https://www.instagram.com/reel/DeC_4PJjvhg/'
+      ]
+    },
     { id: 'corporativo-juridico', name: 'Corporativo Jurídico', icon: 'bi-bank', summary: 'Presencia web del corporativo jurídico y fiscal, en dos dominios.' },
     { id: 'maf', name: 'MAF / Mafrinsa', icon: 'bi-gear-wide-connected', summary: 'Sitios corporativos para empresas de automatización industrial e ingeniería.' },
     { id: 'clientes', name: 'Otros clientes', icon: 'bi-briefcase', summary: 'Sitios web desarrollados para negocios de distintos sectores.' }
@@ -100,6 +111,17 @@ var PORTFOLIO_DATA = {
       features: [],
       howItWorks: [],
       tags: ['Educación', 'Cursos']
+    },
+    {
+      title: 'NutriGym',
+      url: 'https://nutrigym.cuyox3.com/',
+      group: 'cuyox3',
+      kind: 'Plataforma',
+      description: 'Proyecto de CuyoX3 enfocado en nutrición y entrenamiento.',
+      pending: true, // TODO: completar descripción, features y howItWorks
+      features: [],
+      howItWorks: [],
+      tags: ['Nutrición', 'Fitness']
     },
     {
       title: 'CuyoX3 Aseguradora',
