@@ -40,7 +40,8 @@ var PORTFOLIO_DATA = {
     },
     { id: 'corporativo-juridico', name: 'Corporativo Jurídico', icon: 'bi-bank', summary: 'Presencia web del corporativo jurídico y fiscal, en dos dominios.' },
     { id: 'maf', name: 'MAF / Mafrinsa', icon: 'bi-gear-wide-connected', summary: 'Sitios corporativos para empresas de automatización industrial e ingeniería.' },
-    { id: 'clientes', name: 'Otros clientes', icon: 'bi-briefcase', summary: 'Sitios web desarrollados para negocios de distintos sectores.' }
+    { id: 'clientes', name: 'Otros clientes', icon: 'bi-briefcase', summary: 'Sitios web desarrollados para negocios de distintos sectores.' },
+    { id: 'python', name: 'Proyectos Python', icon: 'bi-filetype-py', summary: 'Proyectos personales con Python: procesamiento de audio, IA y APIs.' }
   ],
 
   projects: [
@@ -257,6 +258,30 @@ var PORTFOLIO_DATA = {
       features: [],
       howItWorks: [],
       tags: ['HTML5', 'CSS3', 'JavaScript', 'Responsive']
+    },
+
+    // ----- Proyectos Python -----
+    {
+      title: 'Conversión de voz',
+      url: 'https://cuyox3.github.io/conversion/',
+      repo: 'https://github.com/Cuyox3/conversion',
+      group: 'python',
+      kind: 'Aplicación web',
+      description: 'Crea la voz de un usuario a partir de un audio y genera voz desde texto. El análisis de la voz está escrito en Python y corre dentro del navegador con Pyodide; la clonación neuronal la hace un servidor FastAPI con XTTS-v2.',
+      features: [
+        'Sube un audio o graba tu voz con el micrófono',
+        'Perfil de voz: tono medio y rango, expresividad, velocidad al hablar y brillo del timbre, con gráfica del tono',
+        'Varias voces por usuario, guardadas en el navegador',
+        'Texto a voz adaptado a tu perfil, o clonación neuronal de tu timbre con descarga en WAV'
+      ],
+      howItWorks: [
+        'Pyodide (CPython en WebAssembly) ejecuta el módulo de análisis con NumPy directamente en GitHub Pages; el audio no sale del equipo.',
+        'El tono se estima con el algoritmo YIN cada 10 ms; la envolvente de energía da las sílabas por segundo y el centroide espectral el brillo.',
+        'En modo navegador, el perfil elige la voz base y ajusta tono y velocidad de la Web Speech API.',
+        'Un servidor opcional en FastAPI usa Coqui XTTS-v2 para hablar con el timbre del usuario; pruebas con pytest y despliegue con GitHub Actions.'
+      ],
+      tags: ['Python', 'NumPy', 'Pyodide', 'FastAPI', 'XTTS-v2', 'GitHub Pages'],
+      featured: true
     }
   ],
 
