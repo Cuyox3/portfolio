@@ -3,17 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portafolio de Arturo Cid Ruiz — Backend &amp; Cloud Engineer (Python) e Ingeniero en Mecatrónica. Proyectos, experiencia, certificaciones e IoT.">
+  <meta name="description" content="Portafolio de Arturo Cid Ruiz, Backend &amp; Cloud Engineer (Python) e Ingeniero en Mecatrónica: proyectos web, APIs, cloud, IoT, experiencia y certificaciones.">
   <meta name="author" content="Arturo Cid Ruiz">
   <meta name="theme-color" content="#0a0a0f">
-  <meta property="og:title" content="Arturo Cid Ruiz | Backend &amp; Cloud Engineer">
-  <meta property="og:description" content="Proyectos web, experiencia, certificaciones e IoT.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/img/arturo-cid-ruiz.jpg">
   <script>document.documentElement.classList.add('js');</script>
   <title>Arturo Cid Ruiz | Backend &amp; Cloud Engineer</title>
 
+  <!-- SEO: URL canónica (evita contenido duplicado) y vista previa al compartir -->
+  <link rel="canonical" href="https://cuyox3.github.io/portfolio/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Arturo Cid Ruiz · Portafolio">
+  <meta property="og:locale" content="es_MX">
+  <meta property="og:url" content="https://cuyox3.github.io/portfolio/">
+  <meta property="og:title" content="Arturo Cid Ruiz | Backend &amp; Cloud Engineer">
+  <meta property="og:description" content="Portafolio de Arturo Cid Ruiz, Backend &amp; Cloud Engineer (Python) e Ingeniero en Mecatrónica: proyectos web, APIs, cloud, IoT, experiencia y certificaciones.">
+  <meta property="og:image" content="https://cuyox3.github.io/portfolio/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Arturo Cid Ruiz — Backend &amp; Cloud Engineer (Python)">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Arturo Cid Ruiz | Backend &amp; Cloud Engineer">
+  <meta name="twitter:description" content="Portafolio de Arturo Cid Ruiz, Backend &amp; Cloud Engineer (Python) e Ingeniero en Mecatrónica: proyectos web, APIs, cloud, IoT, experiencia y certificaciones.">
+  <meta name="twitter:image" content="https://cuyox3.github.io/portfolio/assets/img/og-image.jpg">
+  <!-- Datos estructurados: le dicen a Google quién eres, tu puesto y tus perfiles -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://cuyox3.github.io/portfolio/#arturo",
+        "name": "Arturo Cid Ruiz",
+        "jobTitle": "Backend & Cloud Engineer (Python)",
+        "description": "Ingeniero en Mecatrónica y desarrollador de software especializado en arquitecturas backend, automatización de procesos y despliegues en la nube.",
+        "url": "https://cuyox3.github.io/portfolio/",
+        "image": "https://cuyox3.github.io/portfolio/assets/img/arturo-cid-ruiz.jpg",
+        "email": "mailto:contacto@cuyox3.com",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" },
+        "alumniOf": [
+          { "@type": "CollegeOrUniversity", "name": "Instituto Politécnico Nacional" },
+          { "@type": "CollegeOrUniversity", "name": "Universidad Nacional Autónoma de México" },
+          { "@type": "CollegeOrUniversity", "name": "Universidad Abierta y a Distancia de México" }
+        ],
+        "knowsAbout": ["Python", "Django", "FastAPI", "Flask", "Java", "Spring", "SQL Server", "PostgreSQL", "MongoDB", "Redis", "Docker", "Kubernetes", "Google Cloud", "AWS", "IoT", "Raspberry Pi", "ESP32"],
+        "knowsLanguage": ["es", "en", "de", "fr"],
+        "sameAs": [
+          "https://www.linkedin.com/in/arturo-cid-ruiz/",
+          "https://github.com/Cuyox3"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://cuyox3.github.io/portfolio/#website",
+        "name": "Arturo Cid Ruiz · Portafolio",
+        "url": "https://cuyox3.github.io/portfolio/",
+        "inLanguage": "es-MX",
+        "author": { "@id": "https://cuyox3.github.io/portfolio/#arturo" }
+      }
+    ]
+  }
+  </script>
+
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%237b61ff'/><text x='50' y='68' font-size='52' font-family='Arial' font-weight='700' text-anchor='middle' fill='white'>AC</text></svg>">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
 
   <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,6 +76,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Bootstrap 5 + Icons -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 
@@ -85,7 +141,7 @@
 
             <dl class="hero-stats reveal">
               <div>
-                <dt><span class="counter" data-count="projects">0</span></dt>
+                <dt><span class="counter" data-count="projects">18</span></dt>
                 <dd>Proyectos web</dd>
               </div>
               <div>
@@ -93,7 +149,7 @@
                 <dd>Años de experiencia</dd>
               </div>
               <div>
-                <dt><span class="counter" data-count="certificates">0</span></dt>
+                <dt><span class="counter" data-count="certificates">30</span></dt>
                 <dd>Certificados</dd>
               </div>
             </dl>
@@ -110,7 +166,7 @@
                 <span class="orbit-item" style="--i:5"><i class="bi bi-terminal"></i></span>
               </div>
               <div class="hero-photo-ring">
-                <img src="assets/img/arturo-cid-ruiz.jpg" alt="Fotografía de Arturo Cid Ruiz" width="480" height="480">
+                <img src="assets/img/arturo-cid-ruiz.jpg" alt="Fotografía de Arturo Cid Ruiz" width="480" height="480" fetchpriority="high">
               </div>
               <span class="hero-badge hero-badge--top"><i class="bi bi-cloud-check"></i> Backend &amp; Cloud</span>
               <span class="hero-badge hero-badge--bottom"><i class="bi bi-cpu"></i> IoT &amp; Automatización</span>
@@ -148,32 +204,32 @@
               </p>
             </div>
 
-            <dl class="info-grid">
-              <div class="info-item">
+            <ul class="info-grid">
+              <li class="info-item">
                 <div class="info-icon"><i class="bi bi-mortarboard"></i></div>
-                <div><dt>Formación</dt><dd>Ing. Mecatrónica — IPN</dd></div>
-              </div>
-              <div class="info-item">
+                <div><span class="info-label">Formación</span><span class="info-value">Ing. Mecatrónica — IPN</span></div>
+              </li>
+              <li class="info-item">
                 <div class="info-icon"><i class="bi bi-geo-alt"></i></div>
-                <div><dt>Ubicación</dt><dd>Ciudad de México</dd></div>
-              </div>
-              <div class="info-item">
+                <div><span class="info-label">Ubicación</span><span class="info-value">Ciudad de México</span></div>
+              </li>
+              <li class="info-item">
                 <div class="info-icon"><i class="bi bi-translate"></i></div>
-                <div><dt>Idiomas</dt><dd>Inglés B2 · Alemán A1 · Francés A1</dd></div>
-              </div>
-              <div class="info-item">
+                <div><span class="info-label">Idiomas</span><span class="info-value">Inglés B2 · Alemán A1 · Francés A1</span></div>
+              </li>
+              <li class="info-item">
                 <div class="info-icon"><i class="bi bi-briefcase"></i></div>
-                <div><dt>Enfoque</dt><dd>Backend, Cloud &amp; DevOps</dd></div>
-              </div>
-              <div class="info-item">
+                <div><span class="info-label">Enfoque</span><span class="info-value">Backend, Cloud &amp; DevOps</span></div>
+              </li>
+              <li class="info-item">
                 <div class="info-icon"><i class="bi bi-kanban"></i></div>
-                <div><dt>Metodologías</dt><dd>Scrum · Kanban</dd></div>
-              </div>
-              <div class="info-item">
+                <div><span class="info-label">Metodologías</span><span class="info-value">Scrum · Kanban</span></div>
+              </li>
+              <li class="info-item">
                 <div class="info-icon"><i class="bi bi-clock-history"></i></div>
-                <div><dt>Experiencia</dt><dd>+6 años</dd></div>
-              </div>
-            </dl>
+                <div><span class="info-label">Experiencia</span><span class="info-value">+6 años</span></div>
+              </li>
+            </ul>
           </div>
 
           <div class="col-lg-5 reveal">
@@ -420,18 +476,18 @@
         <header class="section-header reveal">
           <span class="section-kicker">04 — Proyectos</span>
           <h2 class="section-title">Trabajo <span class="gradient-text">destacado</span></h2>
-          <p class="section-subtitle">Una selección de sitios y plataformas en producción. Hay <span data-count="projects"></span> proyectos en total.</p>
+          <p class="section-subtitle">Una selección de sitios y plataformas en producción. Hay <span data-count="projects">18</span> proyectos en total.</p>
         </header>
 
-        <div class="row g-4" data-projects="featured"></div>
+        <div class="row g-4" data-projects="featured"><!-- prerender:start --><div class="col-md-6 col-lg-4 reveal" data-group="cuyox3"><article class="project-card"><a class="project-preview" href="https://cuyox3.com/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><div class="browser-bar"><span></span><span></span><span></span><em>cuyox3.com</em></div><div class="project-shot"><img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fcuyox3.com%2F?w=1200&amp;h=1800" alt="Captura del sitio CuyoX3" loading="lazy" decoding="async" width="1200" height="750" onerror="this.parentNode.classList.add('is-fallback')"><div class="project-shot-fallback"><i class="bi bi-globe2"></i><span>cuyox3.com</span></div><span class="project-overlay"><span class="btn btn-primary-custom btn-sm"><i class="bi bi-box-arrow-up-right me-1"></i>Visitar sitio</span></span></div></a><div class="project-body"><div class="project-badges"><span class="project-badge project-badge--group">CuyoX3</span><span class="project-badge">Sitio principal</span></div><h3>CuyoX3</h3><p>Sitio principal de mi emprendimiento de diseño creativo y desarrollo web, con servicios web y soluciones tecnológicas personalizadas.</p><h4 class="project-subtitle">Qué hace</h4><ul class="project-features"><li>Presenta los servicios de diseño y desarrollo web</li><li>Reúne los productos de la marca en subdominios propios</li><li>Canal de contacto para nuevos clientes</li></ul><ul class="chip-list chip-list--sm"><li>HTML5</li><li>CSS3</li><li>Bootstrap</li><li>JavaScript</li><li>Backend</li></ul><div class="project-links"><a class="project-link" href="https://cuyox3.com/" target="_blank" rel="noopener">cuyox3.com <i class="bi bi-arrow-up-right"></i></a></div></div></article></div><div class="col-md-6 col-lg-4 reveal" data-group="maf"><article class="project-card"><a class="project-preview" href="https://mafautomation.com.mx/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><div class="browser-bar"><span></span><span></span><span></span><em>mafautomation.com.mx</em></div><div class="project-shot"><img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fmafautomation.com.mx%2F?w=1200&amp;h=1800" alt="Captura del sitio MAF Automation" loading="lazy" decoding="async" width="1200" height="750" onerror="this.parentNode.classList.add('is-fallback')"><div class="project-shot-fallback"><i class="bi bi-globe2"></i><span>mafautomation.com.mx</span></div><span class="project-overlay"><span class="btn btn-primary-custom btn-sm"><i class="bi bi-box-arrow-up-right me-1"></i>Visitar sitio</span></span></div></a><div class="project-body"><div class="project-badges"><span class="project-badge project-badge--group">MAF / Mafrinsa</span><span class="project-badge">Sitio corporativo</span></div><h3>MAF Automation</h3><p>Sitio web corporativo para empresa de automatización industrial y soluciones tecnológicas.</p><h4 class="project-subtitle">Qué hace</h4><ul class="project-features"><li>Catálogo de servicios de automatización</li><li>Información corporativa de la empresa</li><li>Formulario de contacto para cotizaciones</li></ul><ul class="chip-list chip-list--sm"><li>HTML5</li><li>CSS3</li><li>Bootstrap</li><li>JavaScript</li></ul><div class="project-links"><a class="project-link" href="https://mafautomation.com.mx/" target="_blank" rel="noopener">mafautomation.com.mx <i class="bi bi-arrow-up-right"></i></a></div></div></article></div><div class="col-md-6 col-lg-4 reveal" data-group="clientes"><article class="project-card"><a class="project-preview" href="https://candylandiastore.mx/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><div class="browser-bar"><span></span><span></span><span></span><em>candylandiastore.mx</em></div><div class="project-shot"><img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fcandylandiastore.mx%2F?w=1200&amp;h=1800" alt="Captura del sitio Candylandia Store" loading="lazy" decoding="async" width="1200" height="750" onerror="this.parentNode.classList.add('is-fallback')"><div class="project-shot-fallback"><i class="bi bi-globe2"></i><span>candylandiastore.mx</span></div><span class="project-overlay"><span class="btn btn-primary-custom btn-sm"><i class="bi bi-box-arrow-up-right me-1"></i>Visitar sitio</span></span></div></a><div class="project-body"><div class="project-badges"><span class="project-badge project-badge--group">Otros clientes</span><span class="project-badge">Tienda en línea</span></div><h3>Candylandia Store</h3><p>Tienda de dulces importados con catálogo administrable y pedidos por WhatsApp. Empezó como un sitio en HTML, CSS y JavaScript y la migré a una arquitectura con React y una API en FastAPI, para que el catálogo viva en una base de datos y los cambios del panel se publiquen al instante.</p><h4 class="project-subtitle">Qué hace</h4><ul class="project-features"><li>Catálogo de productos con categorías, etiquetas y fotos</li><li>Botón «Lo quiero» que arma el pedido por WhatsApp</li><li>Secciones de mayoreo, testimonios, preguntas frecuentes y boletín</li><li>Panel de administración con inicio de sesión para gestionar productos, categorías, etiquetas e imágenes</li><li>Exportación e importación del catálogo en Excel y PDF, y bandeja de mensajes de contacto</li></ul><details class="project-how"><summary>Cómo funciona</summary><ol><li>El frontend en React 18 + Vite se compila y lo sirve Nginx dentro de un contenedor.</li><li>Una API en FastAPI (sobre Gunicorn) expone el catálogo y el panel; usa SQLAlchemy y Alembic sobre PostgreSQL.</li><li>El panel se protege con tokens JWT y contraseñas cifradas con bcrypt; las fotos se procesan con Pillow.</li><li>Todo corre con Docker Compose en un VPS, detrás de Nginx con HTTPS de Let&#39;s Encrypt, y se despliega con un solo script (deploy.sh).</li></ol></details><ul class="chip-list chip-list--sm"><li>React</li><li>Vite</li><li>FastAPI</li><li>PostgreSQL</li><li>Docker</li><li>Nginx</li></ul><div class="project-links"><a class="project-link" href="https://candylandiastore.mx/" target="_blank" rel="noopener">candylandiastore.mx <i class="bi bi-arrow-up-right"></i></a><a class="project-link" href="https://github.com/Cuyox3/candylandyastore" target="_blank" rel="noopener"><i class="bi bi-github"></i> Código</a></div></div></article></div><!-- prerender:end --></div>
 
         <div class="text-center mt-5 reveal">
           <a href="pages/proyectos.html" class="btn btn-outline-custom">
-            <span>Ver los <span data-count="projects"></span> proyectos</span> <i class="bi bi-arrow-right ms-2"></i>
+            <span>Ver los <span data-count="projects">18</span> proyectos</span> <i class="bi bi-arrow-right ms-2"></i>
           </a>
         </div>
 
-        <div class="social-showcase reveal" data-social-showcase="cuyox3"></div>
+        <div class="social-showcase reveal" data-social-showcase="cuyox3"><!-- prerender:start --><div class="social-showcase-head"><span class="social-showcase-icon"><i class="bi bi-instagram"></i></span><div><h3>CuyoX3 en Instagram</h3><p>Reels y publicaciones de la marca, directo desde Instagram.</p></div><a class="btn btn-outline-custom btn-sm social-follow" href="https://www.instagram.com/cuyo_x3/" target="_blank" rel="noopener"><i class="bi bi-instagram me-2"></i>Seguir @cuyo_x3</a></div><div class="reel-grid"><div class="reel-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DeS6wXkEqUk/?utm_source=ig_embed" data-instgrm-version="14"><a class="reel-fallback" href="https://www.instagram.com/reel/DeS6wXkEqUk/" target="_blank" rel="noopener"><span class="reel-fallback-icon"><i class="bi bi-instagram"></i></span><span class="reel-fallback-text">Ver este reel de CuyoX3 en Instagram</span><span class="reel-fallback-cta">Abrir reel <i class="bi bi-box-arrow-up-right"></i></span></a></blockquote></div><div class="reel-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DeC_4PJjvhg/?utm_source=ig_embed" data-instgrm-version="14"><a class="reel-fallback" href="https://www.instagram.com/reel/DeC_4PJjvhg/" target="_blank" rel="noopener"><span class="reel-fallback-icon"><i class="bi bi-instagram"></i></span><span class="reel-fallback-text">Ver este reel de CuyoX3 en Instagram</span><span class="reel-fallback-cta">Abrir reel <i class="bi bi-box-arrow-up-right"></i></span></a></blockquote></div></div><!-- prerender:end --></div>
       </div>
     </section>
 
@@ -444,11 +500,11 @@
           <p class="section-subtitle">Una selección de certificaciones y reconocimientos. Haz clic en cualquiera para verlo.</p>
         </header>
 
-        <div class="row g-4" data-certificates="featured"></div>
+        <div class="row g-4" data-certificates="featured"><!-- prerender:start --><div class="col-md-6 col-lg-4 reveal" data-category="tecnico"><a class="cert-card cert-card--tecnico" href="docs/certificados/backend-ipn-cic-2024.pdf" target="_blank" rel="noopener" data-doc="docs/certificados/backend-ipn-cic-2024.pdf" data-doc-title="Fundamentos de programación Backend"><span class="cert-icon"><i class="bi bi-server"></i></span><span class="cert-content"><span class="cert-meta">Técnicos · 2024</span><span class="cert-title">Fundamentos de programación Backend</span><span class="cert-issuer">IPN — Centro de Investigación en Computación</span></span><span class="cert-action" aria-hidden="true"><i class="bi bi-eye"></i></span></a></div><div class="col-md-6 col-lg-4 reveal" data-category="tecnico"><a class="cert-card cert-card--tecnico" href="docs/certificados/samsung-innovation-campus-2023.pdf" target="_blank" rel="noopener" data-doc="docs/certificados/samsung-innovation-campus-2023.pdf" data-doc-title="Samsung Innovation Campus"><span class="cert-icon"><i class="bi bi-lightbulb"></i></span><span class="cert-content"><span class="cert-meta">Técnicos · 2024</span><span class="cert-title">Samsung Innovation Campus</span><span class="cert-issuer">Samsung — Generación 2023</span></span><span class="cert-action" aria-hidden="true"><i class="bi bi-eye"></i></span></a></div><div class="col-md-6 col-lg-4 reveal" data-category="tecnico"><a class="cert-card cert-card--tecnico" href="docs/certificados/javascript-ieee-2023.pdf" target="_blank" rel="noopener" data-doc="docs/certificados/javascript-ieee-2023.pdf" data-doc-title="Introducción a JavaScript y algoritmos"><span class="cert-icon"><i class="bi bi-filetype-js"></i></span><span class="cert-content"><span class="cert-meta">Técnicos · 2023</span><span class="cert-title">Introducción a JavaScript y algoritmos</span><span class="cert-issuer">IEEE — Rama estudiantil IPN</span></span><span class="cert-action" aria-hidden="true"><i class="bi bi-eye"></i></span></a></div><div class="col-md-6 col-lg-4 reveal" data-category="tecnico"><a class="cert-card cert-card--tecnico" href="docs/certificados/arquitectura-software-moderna.pdf" target="_blank" rel="noopener" data-doc="docs/certificados/arquitectura-software-moderna.pdf" data-doc-title="Arquitectura de Software Moderna"><span class="cert-icon"><i class="bi bi-diagram-3"></i></span><span class="cert-content"><span class="cert-meta">Técnicos</span><span class="cert-title">Arquitectura de Software Moderna</span><span class="cert-issuer">Udemy — DDD, eventos y microservicios</span></span><span class="cert-action" aria-hidden="true"><i class="bi bi-eye"></i></span></a></div><div class="col-md-6 col-lg-4 reveal" data-category="tecnico"><a class="cert-card cert-card--tecnico" href="docs/certificados/sql-server-experto.pdf" target="_blank" rel="noopener" data-doc="docs/certificados/sql-server-experto.pdf" data-doc-title="Master en SQL Server"><span class="cert-icon"><i class="bi bi-database-fill-gear"></i></span><span class="cert-content"><span class="cert-meta">Técnicos</span><span class="cert-title">Master en SQL Server</span><span class="cert-issuer">Udemy — De cero a experto</span></span><span class="cert-action" aria-hidden="true"><i class="bi bi-eye"></i></span></a></div><div class="col-md-6 col-lg-4 reveal" data-category="reconocimiento"><a class="cert-card cert-card--reconocimiento" href="docs/reconocimientos/ja-lider-desarrollo-institucional-2024.pdf" target="_blank" rel="noopener" data-doc="docs/reconocimientos/ja-lider-desarrollo-institucional-2024.pdf" data-doc-title="Líder de Desarrollo Institucional"><span class="cert-icon"><i class="bi bi-people"></i></span><span class="cert-content"><span class="cert-meta">Reconocimientos · 2024</span><span class="cert-title">Líder de Desarrollo Institucional</span><span class="cert-issuer">JA México Alumni — Periodo 2024</span></span><span class="cert-action" aria-hidden="true"><i class="bi bi-eye"></i></span></a></div><!-- prerender:end --></div>
 
         <div class="text-center mt-5 reveal">
           <a href="pages/certificados.html" class="btn btn-outline-custom">
-            <span>Ver los <span data-count="certificates"></span> documentos</span> <i class="bi bi-arrow-right ms-2"></i>
+            <span>Ver los <span data-count="certificates">30</span> documentos</span> <i class="bi bi-arrow-right ms-2"></i>
           </a>
         </div>
       </div>
@@ -592,6 +648,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="scripts/data.js"></script>
+  <script src="scripts/render.js"></script>
   <script src="scripts/main.js"></script>
   <script src="scripts/effects.js"></script>
 </body>

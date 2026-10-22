@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Mapa del sitio para buscadores.
+  Envíalo en Google Search Console: https://search.google.com/search-console
+  Actualiza <lastmod> cuando cambie el contenido de una página.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://cuyox3.github.io/portfolio/</loc>
+    <lastmod>2026-10-22</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://cuyox3.github.io/portfolio/pages/proyectos.html</loc>
+    <lastmod>2026-10-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cuyox3.github.io/portfolio/pages/certificados.html</loc>
+    <lastmod>2026-10-22</lastmod>
+    <priority>0.6</priority>
+  </url>
+</urlset>

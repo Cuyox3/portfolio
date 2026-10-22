@@ -1,0 +1,15 @@
+{
+  "name": "Arturo Cid Ruiz · Portafolio",
+  "short_name": "Arturo Cid",
+  "description": "Backend & Cloud Engineer (Python) e Ingeniero en Mecatrónica.",
+  "lang": "es-MX",
+  "start_url": "./",
+  "scope": "./",
+  "display": "browser",
+  "background_color": "#0a0a0f",
+  "theme_color": "#0a0a0f",
+  "icons": [
+    { "src": "assets/img/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/img/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

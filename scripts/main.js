@@ -1,7 +1,7 @@
 /* ============================================
    PORTFOLIO - Arturo Cid Ruiz
    Main JavaScript
-   Requiere scripts/data.js (PORTFOLIO_DATA)
+   Requiere scripts/data.js (PORTFOLIO_DATA) y scripts/render.js
    ============================================ */
 
 (function () {
@@ -13,133 +13,27 @@
   var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // ---------- Utilidades ----------
-  function escapeHtml(value) {
-    return String(value).replace(/[&<>"']/g, function (ch) {
-      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch];
-    });
-  }
+  var escapeHtml = window.PortfolioRender.escapeHtml;
 
   function $(selector, scope) { return (scope || document).querySelector(selector); }
   function $all(selector, scope) { return Array.prototype.slice.call((scope || document).querySelectorAll(selector)); }
 
-  function hostname(url) {
-    try { return new URL(url).hostname.replace(/^www\./, ''); } catch (e) { return url; }
-  }
-
-  // ---------- Render: proyectos ----------
-  var groupsById = {};
-  (DATA.projectGroups || []).forEach(function (g) { groupsById[g.id] = g; });
-
-  // Captura del sitio: imagen propia si existe, si no una captura automática
-  function projectImage(project) {
-    if (project.image) return BASE + project.image;
-    return 'https://s.wordpress.com/mshots/v1/' + encodeURIComponent(project.url) + '?w=1200&h=1800';
-  }
-
-  function projectCard(project, opts) {
-    var url = escapeHtml(project.url);
-    var title = escapeHtml(project.title);
-    var group = groupsById[project.group];
-    var tags = (project.tags || []).map(function (t) { return '<li>' + escapeHtml(t) + '</li>'; }).join('');
-    var features = (project.features || []).map(function (f) { return '<li>' + escapeHtml(f) + '</li>'; }).join('');
-    var steps = (project.howItWorks || []).map(function (f) { return '<li>' + escapeHtml(f) + '</li>'; }).join('');
-
-    var badges = '<span class="project-badge">' + escapeHtml(project.kind || 'Sitio web') + '</span>';
-    if (project.private) badges += '<span class="project-badge project-badge--private"><i class="bi bi-lock"></i> Acceso privado</span>';
-    if (opts.showGroup && group) badges = '<span class="project-badge project-badge--group">' + escapeHtml(group.name) + '</span>' + badges;
-
-    return '' +
-      '<div class="' + opts.col + ' reveal" data-group="' + escapeHtml(project.group || '') + '">' +
-        '<article class="project-card">' +
-          '<a class="project-preview" href="' + url + '" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">' +
-            '<div class="browser-bar"><span></span><span></span><span></span>' +
-              '<em>' + escapeHtml(hostname(project.url)) + '</em></div>' +
-            '<div class="project-shot">' +
-              '<img src="' + escapeHtml(projectImage(project)) + '" alt="" loading="lazy" decoding="async" ' +
-                'onerror="this.parentNode.classList.add(\'is-fallback\')">' +
-              '<div class="project-shot-fallback"><i class="bi bi-globe2"></i><span>' + escapeHtml(hostname(project.url)) + '</span></div>' +
-              '<span class="project-overlay"><span class="btn btn-primary-custom btn-sm"><i class="bi bi-box-arrow-up-right me-1"></i>Visitar sitio</span></span>' +
-            '</div>' +
-          '</a>' +
-          '<div class="project-body">' +
-            '<div class="project-badges">' + badges + '</div>' +
-            '<h3>' + title + '</h3>' +
-            '<p>' + escapeHtml(project.description || '') + '</p>' +
-            (features ? '<h4 class="project-subtitle">Qué hace</h4><ul class="project-features">' + features + '</ul>' : '') +
-            (steps ? '<details class="project-how"><summary>Cómo funciona</summary><ol>' + steps + '</ol></details>' : '') +
-            '<ul class="chip-list chip-list--sm">' + tags + '</ul>' +
-            '<div class="project-links">' +
-              '<a class="project-link" href="' + url + '" target="_blank" rel="noopener">' +
-                escapeHtml(hostname(project.url)) + ' <i class="bi bi-arrow-up-right"></i></a>' +
-              (project.repo ? '<a class="project-link" href="' + escapeHtml(project.repo) + '" target="_blank" rel="noopener">' +
-                '<i class="bi bi-github"></i> Código</a>' : '') +
-            '</div>' +
-          '</div>' +
-        '</article>' +
-      '</div>';
-  }
+  // ---------- Render: proyectos, Instagram y certificados ----------
+  // El HTML de las tarjetas lo genera scripts/render.js, el mismo código que usa
+  // tools/prerender.js para dejarlas escritas en los .html (SEO).
+  var R = window.PortfolioRender.create(DATA, BASE);
 
   $all('[data-projects]').forEach(function (container) {
-    var mode = container.getAttribute('data-projects');
-
-    if (mode === 'featured') {
-      container.innerHTML = DATA.projects.filter(function (p) { return p.featured; })
-        .map(function (p) { return projectCard(p, { col: 'col-md-6 col-lg-4', showGroup: true }); }).join('');
-      return;
-    }
-
-    // Página de proyectos: un bloque por grupo
-    container.innerHTML = (DATA.projectGroups || []).map(function (group) {
-      var items = DATA.projects.filter(function (p) { return p.group === group.id; });
-      if (!items.length) return '';
-      return '' +
-        '<section class="project-group" data-group-block="' + escapeHtml(group.id) + '">' +
-          '<header class="project-group-head reveal">' +
-            '<span class="project-group-icon"><i class="bi ' + escapeHtml(group.icon) + '"></i></span>' +
-            '<div><h2>' + escapeHtml(group.name) + ' <span class="project-group-count">' + items.length + '</span></h2>' +
-            '<p>' + escapeHtml(group.summary) + '</p></div>' +
-            (group.instagram ? '<a class="group-social" href="' + escapeHtml(group.instagram.url) + '" target="_blank" rel="noopener">' +
-              '<i class="bi bi-instagram"></i> ' + escapeHtml(group.instagram.handle) + '</a>' : '') +
-          '</header>' +
-          '<div class="row g-4">' +
-            items.map(function (p) { return projectCard(p, { col: 'col-md-6 col-xl-4', showGroup: false }); }).join('') +
-          '</div>' +
-          (group.instagram && group.reels ? '<div class="social-showcase reveal" data-social-showcase="' + escapeHtml(group.id) + '"></div>' : '') +
-        '</section>';
-    }).join('');
+    container.innerHTML = R.projects(container.getAttribute('data-projects'));
   });
 
-  // ---------- Render: CuyoX3 en Instagram ----------
-  function socialShowcase(group) {
-    var ig = group.instagram;
-    var reels = (group.reels || []).map(function (url) {
-      var safe = escapeHtml(url);
-      return '' +
-        '<div class="reel-card">' +
-          '<blockquote class="instagram-media" data-instgrm-permalink="' + safe + '?utm_source=ig_embed" data-instgrm-version="14">' +
-            '<a class="reel-fallback" href="' + safe + '" target="_blank" rel="noopener">' +
-              '<span class="reel-fallback-icon"><i class="bi bi-instagram"></i></span>' +
-              '<span class="reel-fallback-text">Ver este reel de ' + escapeHtml(group.name) + ' en Instagram</span>' +
-              '<span class="reel-fallback-cta">Abrir reel <i class="bi bi-box-arrow-up-right"></i></span>' +
-            '</a>' +
-          '</blockquote>' +
-        '</div>';
-    }).join('');
-
-    return '' +
-      '<div class="social-showcase-head">' +
-        '<span class="social-showcase-icon"><i class="bi bi-instagram"></i></span>' +
-        '<div><h3>' + escapeHtml(group.name) + ' en Instagram</h3>' +
-        '<p>Reels y publicaciones de la marca, directo desde Instagram.</p></div>' +
-        '<a class="btn btn-outline-custom btn-sm social-follow" href="' + escapeHtml(ig.url) + '" target="_blank" rel="noopener">' +
-          '<i class="bi bi-instagram me-2"></i>Seguir ' + escapeHtml(ig.handle) + '</a>' +
-      '</div>' +
-      '<div class="reel-grid">' + reels + '</div>';
-  }
-
   $all('[data-social-showcase]').forEach(function (container) {
-    var group = groupsById[container.getAttribute('data-social-showcase')];
-    if (group && group.instagram) container.innerHTML = socialShowcase(group);
+    var html = R.showcase(container.getAttribute('data-social-showcase'));
+    if (html) container.innerHTML = html;
+  });
+
+  $all('[data-certificates]').forEach(function (container) {
+    container.innerHTML = R.certificates(container.getAttribute('data-certificates'));
   });
 
   // El script oficial de Instagram solo se carga cuando los reels están por verse
@@ -202,32 +96,6 @@
     });
   }
 
-  // ---------- Render: certificados ----------
-  function certificateCard(cert) {
-    var category = DATA.certificateCategories[cert.category] || {};
-    var meta = [category.label, cert.date].filter(Boolean).map(escapeHtml).join(' · ');
-
-    return '' +
-      '<div class="col-md-6 col-lg-4 reveal" data-category="' + escapeHtml(cert.category) + '">' +
-        '<button type="button" class="cert-card cert-card--' + escapeHtml(cert.category) + '" ' +
-          'data-doc="' + escapeHtml(BASE + cert.file) + '" data-doc-title="' + escapeHtml(cert.title) + '">' +
-          '<span class="cert-icon"><i class="bi ' + escapeHtml(cert.icon) + '"></i></span>' +
-          '<span class="cert-content">' +
-            '<span class="cert-meta">' + meta + '</span>' +
-            '<span class="cert-title">' + escapeHtml(cert.title) + '</span>' +
-            '<span class="cert-issuer">' + escapeHtml(cert.issuer) + '</span>' +
-          '</span>' +
-          '<span class="cert-action" aria-hidden="true"><i class="bi bi-eye"></i></span>' +
-        '</button>' +
-      '</div>';
-  }
-
-  $all('[data-certificates]').forEach(function (container) {
-    var mode = container.getAttribute('data-certificates');
-    var list = DATA.certificates.filter(function (c) { return mode === 'all' || c.featured; });
-    container.innerHTML = list.map(certificateCard).join('');
-  });
-
   // Filtros de certificados
   var filterBar = $('[data-cert-filters]');
   if (filterBar) {
@@ -268,7 +136,7 @@
   }
 
   // Totales calculados desde los datos
-  var totals = { projects: DATA.projects.length, certificates: DATA.certificates.length };
+  var totals = R.totals;
   $all('[data-count]').forEach(function (el) {
     var total = totals[el.getAttribute('data-count')];
     if (el.classList.contains('counter')) {

@@ -5,6 +5,10 @@
    Para agregar un proyecto, certificado o experiencia
    basta con añadir un objeto a la lista correspondiente.
    Las rutas de archivos son relativas a la raíz del sitio.
+
+   IMPORTANTE (SEO): después de editar este archivo ejecuta
+     node tools/prerender.js
+   para que el contenido también quede escrito en los .html.
    ============================================ */
 
 var PORTFOLIO_DATA = {
@@ -122,6 +126,17 @@ var PORTFOLIO_DATA = {
       features: [],
       howItWorks: [],
       tags: ['Nutrición', 'Fitness']
+    },
+    {
+      title: 'NeoRobotics',
+      url: 'https://neorobotics.cuyox3.com/',
+      group: 'cuyox3',
+      kind: 'Plataforma',
+      description: 'Proyecto de CuyoX3 enfocado en robótica.',
+      pending: true, // TODO: completar descripción, features y howItWorks
+      features: [],
+      howItWorks: [],
+      tags: ['Robótica', 'Tecnología']
     },
     {
       title: 'CuyoX3 Aseguradora',

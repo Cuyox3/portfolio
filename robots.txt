@@ -1,0 +1,9 @@
+# Permite a todos los buscadores rastrear el sitio e indica dónde está el mapa.
+# Nota: los buscadores solo leen robots.txt en la raíz del dominio. Con la URL
+# actual (cuyox3.github.io/portfolio/) este archivo no se consulta; empezará a
+# funcionar si el portafolio se publica en un dominio propio. Mientras tanto,
+# envía el sitemap directamente en Google Search Console.
+User-agent: *
+Allow: /
+
+Sitemap: https://cuyox3.github.io/portfolio/sitemap.xml
