@@ -263,8 +263,8 @@ var PORTFOLIO_DATA = {
     // ----- Proyectos Python -----
     {
       title: 'Conversión de voz',
-      url: 'https://cuyox3.github.io/conversion/',
-      repo: 'https://github.com/Cuyox3/conversion',
+      url: 'https://cuyox3.github.io/conversation/',
+      repo: 'https://github.com/Cuyox3/conversation',
       group: 'python',
       kind: 'Aplicación web',
       description: 'Crea la voz de un usuario a partir de un audio y genera voz desde texto. El análisis de la voz está escrito en Python y corre dentro del navegador con Pyodide; la clonación neuronal la hace un servidor FastAPI con XTTS-v2.',
