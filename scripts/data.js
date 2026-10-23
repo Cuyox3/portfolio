@@ -267,20 +267,21 @@ var PORTFOLIO_DATA = {
       repo: 'https://github.com/Cuyox3/conversation',
       group: 'python',
       kind: 'Aplicación web',
-      description: 'Crea la voz de un usuario a partir de un audio y genera voz desde texto. El análisis de la voz está escrito en Python y corre dentro del navegador con Pyodide; la clonación neuronal la hace un servidor FastAPI con XTTS-v2.',
+      description: 'Clonación de voz, texto a voz y cambiador de voz inspirados en ElevenLabs y Resemble AI. El procesamiento de voz está escrito en Python y corre dentro del navegador con Pyodide; la clonación neuronal la hace un servidor FastAPI con XTTS-v2 o Chatterbox.',
       features: [
-        'Sube un audio o graba tu voz con el micrófono',
-        'Perfil de voz: tono medio y rango, expresividad, velocidad al hablar y brillo del timbre, con gráfica del tono',
-        'Varias voces por usuario, guardadas en el navegador',
-        'Texto a voz adaptado a tu perfil, o clonación neuronal de tu timbre con descarga en WAV'
+        'Crea la voz de un usuario subiendo o grabando un audio, con revisión de calidad y consentimiento',
+        'Diseña voces por parámetros sin grabar nada',
+        'Texto a voz en el navegador o con clonación neuronal (XTTS-v2 o Chatterbox con control de emoción)',
+        'Cambiador de voz: convierte una grabación al tono y timbre de otra voz',
+        'Marca de agua inaudible en todo el audio generado y verificador para detectarla'
       ],
       howItWorks: [
-        'Pyodide (CPython en WebAssembly) ejecuta el módulo de análisis con NumPy directamente en GitHub Pages; el audio no sale del equipo.',
-        'El tono se estima con el algoritmo YIN cada 10 ms; la envolvente de energía da las sílabas por segundo y el centroide espectral el brillo.',
-        'En modo navegador, el perfil elige la voz base y ajusta tono y velocidad de la Web Speech API.',
-        'Un servidor opcional en FastAPI usa Coqui XTTS-v2 para hablar con el timbre del usuario; pruebas con pytest y despliegue con GitHub Actions.'
+        'Pyodide (CPython en WebAssembly) ejecuta los módulos de NumPy directamente en GitHub Pages; el audio no sale del equipo.',
+        'El tono se estima con el algoritmo YIN; el cambiador usa un vocoder de fase y el cepstrum para mover tono y formantes por separado.',
+        'La marca de agua es ruido de espectro ensanchado 30 dB bajo la voz, detectado por correlación.',
+        'Un servidor FastAPI opcional clona el timbre con XTTS-v2 o Chatterbox y divide textos largos en oraciones; pruebas con pytest y despliegue con GitHub Actions.'
       ],
-      tags: ['Python', 'NumPy', 'Pyodide', 'FastAPI', 'XTTS-v2', 'GitHub Pages'],
+      tags: ['Python', 'NumPy', 'Pyodide', 'FastAPI', 'XTTS-v2', 'Chatterbox', 'GitHub Pages'],
       featured: true
     }
   ],
