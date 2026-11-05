@@ -31,12 +31,8 @@ var PORTFOLIO_DATA = {
       name: 'CuyoX3',
       icon: 'bi-stars',
       summary: 'Mi emprendimiento de diseño creativo y desarrollo web. Cada producto vive en su propio subdominio de cuyox3.com.',
-      // Redes de la marca: se muestran en el encabezado del grupo y en la sección de Instagram
-      instagram: { handle: '@cuyo_x3', url: 'https://www.instagram.com/cuyo_x3/' },
-      reels: [
-        'https://www.instagram.com/reel/DeS6wXkEqUk/',
-        'https://www.instagram.com/reel/DeC_4PJjvhg/'
-      ]
+      // Instagram de la marca: se muestra en el encabezado del grupo
+      instagram: { handle: '@cuyo_x3', url: 'https://www.instagram.com/cuyo_x3/' }
     },
     { id: 'corporativo-juridico', name: 'Corporativo Jurídico', icon: 'bi-bank', summary: 'Presencia web del corporativo jurídico y fiscal, en dos dominios.' },
     { id: 'maf', name: 'MAF / Mafrinsa', icon: 'bi-gear-wide-connected', summary: 'Sitios corporativos para empresas de automatización industrial e ingeniería.' },
