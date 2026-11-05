@@ -40,7 +40,8 @@ var PORTFOLIO_DATA = {
     },
     { id: 'corporativo-juridico', name: 'Corporativo Jurídico', icon: 'bi-bank', summary: 'Presencia web del corporativo jurídico y fiscal, en dos dominios.' },
     { id: 'maf', name: 'MAF / Mafrinsa', icon: 'bi-gear-wide-connected', summary: 'Sitios corporativos para empresas de automatización industrial e ingeniería.' },
-    { id: 'clientes', name: 'Otros clientes', icon: 'bi-briefcase', summary: 'Sitios web desarrollados para negocios de distintos sectores.' }
+    { id: 'clientes', name: 'Otros clientes', icon: 'bi-briefcase', summary: 'Sitios web desarrollados para negocios de distintos sectores.' },
+    { id: 'python', name: 'Proyectos Python', icon: 'bi-filetype-py', summary: 'Proyectos personales con Python: procesamiento de audio, IA y APIs.' }
   ],
 
   projects: [
@@ -134,6 +135,57 @@ var PORTFOLIO_DATA = {
       howItWorks: [],
       tags: ['Seguros', 'Sistema interno'],
       private: true
+    },
+    {
+      title: 'Orcofi',
+      url: 'https://orcofi.cuyox3.com/',
+      group: 'cuyox3',
+      kind: 'Oficina virtual',
+      description: 'Oficina virtual para despachos de derecho fiscal mexicano con un equipo de agentes de IA que estudia cada asunto junto con el abogado. Requiere inicio de sesión.',
+      features: [
+        'Expedientes (asuntos) y clientes con plazos, tareas en tablero, faltantes por pedir y línea de tiempo de actos',
+        'Agentes de IA configurables: profesión, modelo y proveedor, criticidad, skills y leyes que pueden consultar',
+        'Biblioteca de leyes (CFF, LFPCA y más) dividida por artículo, con búsqueda, subrayados y citas verificadas',
+        'Sala de juntas donde varios agentes opinan, se critican y un moderador sintetiza; dictámenes e informes descargables',
+        'Simulación de juicio ante el Tribunal con magistrado, partes y perito para preparar el caso',
+        'Calendario de vencimientos con cálculo de plazos del CFF y avisos por correo',
+        'Portal público para que el cliente vea el avance de su asunto sin usuario ni contraseña'
+      ],
+      howItWorks: [
+        'Aplicación de una sola página en React, compilada con Vite y con rutas de React Router.',
+        'Una API REST protegida con sesión y token CSRF guarda despachos, miembros, asuntos, clientes y documentos.',
+        'Los documentos se indexan por fragmentos para que los agentes citen solo lo que está en la biblioteca y cada cita se pueda abrir.',
+        'La oficina se actualiza en vivo por WebSockets: las respuestas de los agentes llegan mientras se generan.',
+        'Cada despacho elige su proveedor y modelo de IA con su propia llave y ve el consumo de tokens y su costo.'
+      ],
+      tags: ['React', 'Vite', 'IA multiagente', 'WebSockets', 'API REST', 'Derecho fiscal'],
+      private: true,
+      featured: true
+    },
+    {
+      title: 'Alineación y Balanceo Cruzer',
+      url: 'https://taller.cuyox3.com/',
+      group: 'cuyox3',
+      kind: 'Sitio + tienda + panel',
+      description: 'Sitio, tienda en línea y sistema de gestión para un taller de alineación, balanceo, llantas y suspensión en Tlalnepantla. Es una demostración: productos, precios y pagos son de prueba.',
+      features: [
+        'Página del taller con servicios, horario, ubicación, testimonios y formulario de contacto',
+        'Agenda de citas en línea con horarios disponibles según el servicio y la capacidad del taller',
+        'Tienda con buscador de llantas por medida (ancho, perfil y rin), carrito y pago con tarjeta, OXXO o transferencia',
+        'Compra de llantas con instalación agendada en el mismo paso, y cuenta del cliente para seguir pedidos y citas',
+        'Panel del taller: tablero con ventas y stock bajo, pedidos, citas, mensajes, usuarios y configuración',
+        'Inventario con etiquetas QR imprimibles, escáner con la cámara, conteo físico, importación CSV e historial de movimientos',
+        'Gestión de la tienda: ofertas, cupones, banners, envíos y catálogos de categorías, marcas y proveedores'
+      ],
+      howItWorks: [
+        'Frontend en React con Vite, React Router y componentes con Tailwind CSS; las páginas se cargan bajo demanda.',
+        'Los datos se piden a una API REST (/api/v1) con caché de consultas, y los formularios se validan con Zod.',
+        'La agenda calcula los horarios libres con el horario semanal, la duración de cada turno y la capacidad por turno.',
+        'Pagos preparados para Mercado Pago y Stripe; en la demostración se usa una pantalla de pago simulado.',
+        'El panel grafica las métricas con Recharts y lee las etiquetas QR con la cámara del teléfono; se sirve detrás de Nginx.'
+      ],
+      tags: ['React', 'Vite', 'Tailwind CSS', 'E-commerce', 'Inventario QR', 'Citas en línea'],
+      featured: true
     },
 
     // ----- Corporativo Jurídico -----
@@ -257,6 +309,31 @@ var PORTFOLIO_DATA = {
       features: [],
       howItWorks: [],
       tags: ['HTML5', 'CSS3', 'JavaScript', 'Responsive']
+    },
+
+    // ----- Proyectos Python -----
+    {
+      title: 'Conversión de voz',
+      url: 'https://cuyox3.github.io/conversation/',
+      repo: 'https://github.com/Cuyox3/conversation',
+      group: 'python',
+      kind: 'Aplicación web',
+      description: 'Clonación de voz, texto a voz y cambiador de voz inspirados en ElevenLabs y Resemble AI. El procesamiento de voz está escrito en Python y corre dentro del navegador con Pyodide; la clonación neuronal la hace un servidor FastAPI con XTTS-v2 o Chatterbox.',
+      features: [
+        'Crea la voz de un usuario subiendo o grabando un audio, con revisión de calidad y consentimiento',
+        'Diseña voces por parámetros sin grabar nada',
+        'Texto a voz en el navegador o con clonación neuronal (XTTS-v2 o Chatterbox con control de emoción)',
+        'Cambiador de voz: convierte una grabación al tono y timbre de otra voz',
+        'Marca de agua inaudible en todo el audio generado y verificador para detectarla'
+      ],
+      howItWorks: [
+        'Pyodide (CPython en WebAssembly) ejecuta los módulos de NumPy directamente en GitHub Pages; el audio no sale del equipo.',
+        'El tono se estima con el algoritmo YIN; el cambiador usa un vocoder de fase y el cepstrum para mover tono y formantes por separado.',
+        'La marca de agua es ruido de espectro ensanchado 30 dB bajo la voz, detectado por correlación.',
+        'Un servidor FastAPI opcional clona el timbre con XTTS-v2 o Chatterbox y divide textos largos en oraciones; pruebas con pytest y despliegue con GitHub Actions.'
+      ],
+      tags: ['Python', 'NumPy', 'Pyodide', 'FastAPI', 'XTTS-v2', 'Chatterbox', 'GitHub Pages'],
+      featured: true
     }
   ],
 
