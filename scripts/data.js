@@ -31,12 +31,8 @@ var PORTFOLIO_DATA = {
       name: 'CuyoX3',
       icon: 'bi-stars',
       summary: 'Mi emprendimiento de diseño creativo y desarrollo web. Cada producto vive en su propio subdominio de cuyox3.com.',
-      // Redes de la marca: se muestran en el encabezado del grupo y en la sección de Instagram
-      instagram: { handle: '@cuyo_x3', url: 'https://www.instagram.com/cuyo_x3/' },
-      reels: [
-        'https://www.instagram.com/reel/DeS6wXkEqUk/',
-        'https://www.instagram.com/reel/DeC_4PJjvhg/'
-      ]
+      // Instagram de la marca: se muestra en el encabezado del grupo
+      instagram: { handle: '@cuyo_x3', url: 'https://www.instagram.com/cuyo_x3/' }
     },
     { id: 'corporativo-juridico', name: 'Corporativo Jurídico', icon: 'bi-bank', summary: 'Presencia web del corporativo jurídico y fiscal, en dos dominios.' },
     { id: 'maf', name: 'MAF / Mafrinsa', icon: 'bi-gear-wide-connected', summary: 'Sitios corporativos para empresas de automatización industrial e ingeniería.' },
@@ -51,86 +47,158 @@ var PORTFOLIO_DATA = {
       url: 'https://cuyox3.com/',
       group: 'cuyox3',
       kind: 'Sitio principal',
-      description: 'Sitio principal de mi emprendimiento de diseño creativo y desarrollo web, con servicios web y soluciones tecnológicas personalizadas.',
-      features: ['Presenta los servicios de diseño y desarrollo web', 'Reúne los productos de la marca en subdominios propios', 'Canal de contacto para nuevos clientes'],
-      howItWorks: [],
-      tags: ['HTML5', 'CSS3', 'Bootstrap', 'JavaScript', 'Backend'],
+      description: 'Sitio principal de mi emprendimiento: chatbots, software, páginas web, impresión 3D y electrónica a medida para pymes y emprendedores, con un solo socio tecnológico.',
+      features: [
+        'Presenta seis bloques de servicios: chatbots, software y plataformas, diseño e impresión 3D, electrónica e IoT, diseño UX/UI e infraestructura',
+        'Paquetes de chatbot (Esencial, Profesional y Avanzado) que se cotizan directo por WhatsApp',
+        'Demostración animada de CuyoBot atendiendo preguntas frecuentes, citas y ventas',
+        'Sectores atendidos, proceso de trabajo, preguntas frecuentes y contacto por WhatsApp, correo y redes'
+      ],
+      howItWorks: [
+        'Aplicación de una sola página en React compilada con Vite, con navegación por secciones.',
+        'Cada botón de paquete abre WhatsApp con un mensaje ya redactado para ese plan.',
+        'Enlaza los productos de la marca, que viven en subdominios de cuyox3.com.'
+      ],
+      tags: ['React', 'Vite', 'Chatbots', 'IoT', 'Impresión 3D'],
       featured: true
     },
     {
-      title: 'CuyoX3 Dental',
+      title: 'Bacidental',
       url: 'https://dental.cuyox3.com/',
       group: 'cuyox3',
-      kind: 'Plataforma',
-      description: 'Proyecto de CuyoX3 para el sector dental.',
-      pending: true, // TODO: completar descripción, features y howItWorks
-      features: [],
-      howItWorks: [],
-      tags: ['Salud', 'Web']
+      kind: 'Software dental',
+      description: 'Software de gestión para consultorios dentales: pacientes, agenda, tratamientos, recetas e inventario de todas las sucursales en un solo lugar, sin renta por sucursal y con los expedientes en el servidor del propio dentista.',
+      features: [
+        'Pacientes, agenda del día, tratamientos, recetas e inventario con aviso de insumos bajo mínimo',
+        'Sucursales ilimitadas en una sola cuenta, sin licencia extra por consultorio',
+        'Expediente clínico conforme a NOM-004, NOM-013 y NOM-024: notas firmadas, odontograma interactivo y bitácora de consultas',
+        'Tablero de cumplimiento de ocho normas oficiales, con control de RPBI, esterilización y el informe mensual de la NOM-035',
+        'Consentimiento informado firmado en pantalla',
+        'Rol de asistente que agenda y registra sin poder borrar ni administrar usuarios',
+        'Calculadora que compara el costo contra el software dental de renta mensual'
+      ],
+      howItWorks: [
+        'Frontend en React con registro, inicio de sesión, recuperación de contraseña y guía de uso.',
+        'Se instala con Docker en el servidor que elija el consultorio, así que la base de datos es del dentista.',
+        'Cada dentista solo ve sus expedientes; 85 pruebas automatizadas verifican ese aislamiento en cada cambio.',
+        'Las notas firmadas llevan una huella digital que delata cualquier cambio y no se pueden borrar durante los cinco años de conservación.'
+      ],
+      tags: ['React', 'Docker', 'Salud', 'NOM-004', 'Multi-sucursal', 'Pruebas automatizadas']
     },
     {
-      title: 'CuyoX3 Fiscal',
+      title: 'Crítico Fiscal',
       url: 'https://fiscal.cuyox3.com/panel',
       group: 'cuyox3',
-      kind: 'Panel privado',
-      description: 'Panel de CuyoX3 para el área fiscal. Requiere inicio de sesión.',
-      pending: true, // TODO: completar descripción, features y howItWorks
-      features: [],
-      howItWorks: [],
-      tags: ['Panel', 'Fiscal'],
-      private: true
+      kind: 'Buscador legal',
+      description: 'Buscador de sentencias fiscales favorables al contribuyente en México, con las leyes fiscales artículo por artículo, la lista 69-B del SAT, el DOF y un asistente de IA que responde solo con los documentos indexados.',
+      features: [
+        'Sentencias del TFJA, la SCJN y criterios de PRODECON, clasificadas como ganadoras o no con síntesis y el argumento determinante',
+        'Leyes fiscales vigentes (CFF, LISR, LIVA, LIEPS y más) por artículo, con la jurisprudencia relacionada en cada uno',
+        'Contribuyentes publicados por el SAT en el artículo 69-B (EFOS) y si tienen sentencia favorable',
+        'Publicaciones del DOF de interés fiscal',
+        'Asistente de IA que consulta todo el corpus o un archivo específico sin inventar',
+        'Panel con estadísticas por fuente y por autoridad',
+        'Actualización por fuente, rango de fechas y palabras clave fiscales, con progreso en vivo'
+      ],
+      howItWorks: [
+        'Backend en Django con una API REST; el frontend es una aplicación en React compilada con Vite.',
+        'Scrapers en Python recorren TFJA, SCJN, PRODECON, DOF y SAT en segundo plano y guardan solo lo nuevo.',
+        'La recolección puede programarse a diario con un comando de Django (cron o Celery beat).',
+        'El texto de las leyes viene de la Cámara de Diputados y cada sentencia se liga a los artículos que cita.'
+      ],
+      tags: ['Python', 'Django', 'React', 'Web scraping', 'IA', 'Derecho fiscal']
     },
     {
-      title: 'CuyoX3 Bots',
+      title: 'CuiBot',
       url: 'https://bots.cuyox3.com/',
       group: 'cuyox3',
-      kind: 'Plataforma',
-      description: 'Plataforma de bots de CuyoX3.',
-      pending: true, // TODO: completar descripción, features y howItWorks
-      features: [],
-      howItWorks: [],
-      tags: ['Bots', 'Automatización']
+      kind: 'SaaS',
+      description: 'Plataforma para automatizar WhatsApp con IA: respuestas fijas para preguntas frecuentes y, cuando la conversación se sale del guion, respuestas de Gemini con el contexto del negocio. Todo se configura desde un panel, sin código.',
+      features: [
+        'Preguntas y respuestas con coincidencia exacta, parcial o por expresión regular',
+        'Respuestas con IA de Gemini acotadas por el contexto de cada pregunta (catálogo, precios, tono, reglas)',
+        'Editor de flujos en diagrama: mensajes, preguntas con captura, respuestas con IA y saltos entre flujos',
+        'Bandeja de conversaciones para contestar a mano desde el panel',
+        'Mensajes programados y masivos a contactos, etiquetas o grupos',
+        'Contactos con etiquetas y lista de bloqueo, bitácora y métricas de uso',
+        'API abierta para enviar mensajes desde un CRM o tienda, y planes mensuales sin cobro por mensaje'
+      ],
+      howItWorks: [
+        'El número se vincula una sola vez escaneando un código QR; la sesión de WhatsApp se guarda en el servidor.',
+        'Corre sobre el número propio del negocio, sin pagar por conversación de la API oficial.',
+        'El panel en React guarda la configuración y el bot la recarga al instante.',
+        'Lo crítico se responde con texto fijo y lo abierto con IA; todo queda registrado en la bitácora.'
+      ],
+      tags: ['WhatsApp', 'Gemini', 'IA', 'Automatización', 'React', 'SaaS']
     },
     {
-      title: 'MakerThing',
+      title: 'Maker Things',
       url: 'https://makerthing.cuyox3.com/',
       group: 'cuyox3',
-      kind: 'Plataforma',
-      description: 'MakerThing, proyecto maker de CuyoX3.',
-      pending: true, // TODO: completar descripción, features y howItWorks
-      features: [],
-      howItWorks: [],
-      tags: ['Maker']
+      kind: 'SaaS',
+      description: 'Plataforma para publicar en TikTok, Instagram, Facebook y YouTube desde un solo editor y comparar el rendimiento de la misma publicación en cada red, en una sola pantalla.',
+      features: [
+        'Editor común con texto propio por red cuando hace falta, validado contra los límites de cada plataforma',
+        'Programación de publicaciones con reintentos automáticos y traza de cada intento',
+        'Métricas unificadas: la misma pieza de contenido con sus números lado a lado en cada red',
+        'Grupos de acceso para que cada persona del equipo o cliente vea solo sus cuentas',
+        'Herramientas: generador de PNG a medida por red, zonas seguras de verticales, verificador de contraste WCAG y extractor de paleta',
+        'Quitar metadatos (GPS, fechas) de fotos y videos sin recomprimir, y leer la procedencia de archivos generados con IA (C2PA)'
+      ],
+      howItWorks: [
+        'Cada red se conecta por su API oficial con OAuth de Meta, TikTok y Google; los tokens se guardan cifrados y se renuevan solos.',
+        'Usa la programación nativa de cada red cuando existe y un planificador propio cuando no.',
+        'Traduce las métricas de cada plataforma a un vocabulario común para poder compararlas.',
+        'Frontend en React con registro, panel y páginas legales para la revisión de las apps de cada red.'
+      ],
+      tags: ['React', 'APIs oficiales', 'OAuth', 'Redes sociales', 'Métricas']
     },
     {
-      title: 'CuyoX3 Cursos',
+      title: 'LopezVilla Capacitación',
       url: 'https://cursos.cuyox3.com/',
       group: 'cuyox3',
       kind: 'Plataforma de cursos',
-      description: 'Plataforma de cursos en línea de CuyoX3.',
-      pending: true, // TODO: completar descripción, features y howItWorks
-      features: [],
-      howItWorks: [],
-      tags: ['Educación', 'Cursos']
+      description: 'Sitio y plataforma de capacitación en línea para un despacho jurídico-fiscal: presenta la firma y sus áreas de práctica, y vende cursos, webinars y conferencias para abogados fiscalistas.',
+      features: [
+        'Sitio de la firma: equipo, áreas de práctica, oficinas, noticias y contacto',
+        'Catálogo de cursos por especialidad, con calificaciones, precios y ofertas',
+        'Agenda de eventos: webinars y conferencias presenciales o en vivo',
+        'Boletín de actualizaciones legales',
+        'Acceso para miembros con inicio de sesión'
+      ],
+      howItWorks: [
+        'Aplicación en React compilada con Vite que consume una API REST de cursos, categorías, avisos y contenido.',
+        'Todo el contenido de la portada (textos, equipo, oficinas, noticias, eventos) se administra desde el backend, sin tocar código.',
+        'El contenido actual es de demostración.'
+      ],
+      tags: ['React', 'Vite', 'API REST', 'E-learning', 'CMS']
     },
     {
       title: 'NutriGym',
       url: 'https://nutrigym.cuyox3.com/',
       group: 'cuyox3',
-      kind: 'Plataforma',
-      description: 'Proyecto de CuyoX3 enfocado en nutrición y entrenamiento.',
-      pending: true, // TODO: completar descripción, features y howItWorks
-      features: [],
-      howItWorks: [],
-      tags: ['Nutrición', 'Fitness']
+      kind: 'App web',
+      description: 'Panel de progreso de nutrición y entrenamiento con atlas muscular en 3D y un coach de IA que analiza los registros de la semana.',
+      features: [
+        'Panel semanal: sueño, calorías, proteína y minutos entrenados frente a sus objetivos, con gráficas de evolución y racha',
+        'Diario donde se sube la foto del plato o la captura del reloj y la IA rellena el registro',
+        'Atlas muscular 3D para explorar cada grupo muscular y cómo entrenarlo',
+        'Esqueleto articulado que muestra las fases concéntrica, excéntrica e isométrica del movimiento',
+        'Coach de IA: Gemini revisa los últimos 7 registros y devuelve un plan concreto, y responde preguntas'
+      ],
+      howItWorks: [
+        'Modelos anatómicos 3D renderizados con Three.js (GLTF, controles orbitales y posprocesado), basados en BodyParts3D y Z-Anatomy.',
+        'Los registros diarios se guardan por API y alimentan las gráficas del panel.',
+        'Gemini lee las fotos y las capturas para proponer las cantidades del registro.'
+      ],
+      tags: ['Three.js', 'WebGL', 'Gemini', 'IA', 'Fitness', 'Nutrición']
     },
     {
-      title: 'CuyoX3 Aseguradora',
+      title: 'Sistema de siniestros',
       url: 'https://ase-guradora.cuyox3.com/acceso/?next=/',
       group: 'cuyox3',
       kind: 'Sistema privado',
-      description: 'Sistema de CuyoX3 para el ramo asegurador. Requiere inicio de sesión.',
-      pending: true, // TODO: completar descripción, features y howItWorks
+      description: 'Sistema interno para registrar y dar seguimiento a reportes de siniestros de una aseguradora. El acceso lo da el administrador; sin credenciales solo se ve la pantalla de inicio de sesión.',
       features: [],
       howItWorks: [],
       tags: ['Seguros', 'Sistema interno'],
@@ -217,11 +285,22 @@ var PORTFOLIO_DATA = {
       title: 'MAF Automation',
       url: 'https://mafautomation.com.mx/',
       group: 'maf',
-      kind: 'Sitio corporativo',
-      description: 'Sitio web corporativo para empresa de automatización industrial y soluciones tecnológicas.',
-      features: ['Catálogo de servicios de automatización', 'Información corporativa de la empresa', 'Formulario de contacto para cotizaciones'],
-      howItWorks: [],
-      tags: ['HTML5', 'CSS3', 'Bootstrap', 'JavaScript'],
+      kind: 'Sitio + herramientas',
+      description: 'Sitio corporativo de MAF Automation, empresa de automatización industrial y desarrollo de maquinaria, con catálogo de equipos y un panel de herramientas internas para cotizar y organizar el taller.',
+      features: [
+        'Servicios de maquinaria personalizada, automatización de procesos e integración de sistemas',
+        'Industrias atendidas: alimenticia, automotriz, farmacéutica, cartonera y de empaquetado',
+        'Catálogo de equipos administrable desde un panel privado',
+        'Calculadora de corte láser que suma la ganancia y manda la partida al cotizador',
+        'Generador de cotizaciones y de remisiones en PDF',
+        'Órdenes de trabajo que los trabajadores actualizan desde el celular'
+      ],
+      howItWorks: [
+        'Aplicación en React compilada con Vite; el catálogo se carga desde una API de productos.',
+        'Un panel de administración con acceso privado da de alta los equipos del catálogo.',
+        'Las herramientas generan los documentos en PDF directamente en el navegador.'
+      ],
+      tags: ['React', 'Vite', 'API REST', 'PDF', 'Automatización industrial'],
       featured: true
     },
     {
@@ -284,21 +363,40 @@ var PORTFOLIO_DATA = {
       title: 'Inversión Inmobiliaria',
       url: 'https://inversioninmobiliaria.casa/',
       group: 'clientes',
-      kind: 'Portal',
-      description: 'Portal de inversión inmobiliaria con información de propiedades, oportunidades de inversión y asesoría personalizada.',
-      features: ['Muestra propiedades y oportunidades de inversión', 'Asesoría personalizada para interesados'],
-      howItWorks: [],
-      tags: ['HTML5', 'CSS3', 'JavaScript', 'Responsive']
+      kind: 'Portal inmobiliario',
+      description: 'Portal inmobiliario de la CDMX para comprar, vender y rentar casas, departamentos, terrenos y locales, donde los propietarios publican sus inmuebles y los asesores venden el inventario de la casa.',
+      features: [
+        'Búsqueda por operación, tipo de inmueble y zona, con fichas que incluyen fotos, ficha técnica en PDF y contacto por WhatsApp',
+        'Publicación de propiedades: gratis hasta 2, y planes de membresía con más cupo y anuncios destacados',
+        'Programa de socios: catálogo de la casa con comisiones, fotos en ZIP, ficha PDF y mensaje listo para WhatsApp',
+        'Cartera de clientes y agenda de visitas con la ruta del día armada',
+        'Servicios: administración de inmuebles, avalúos, escrituración y gestión de crédito hipotecario',
+        'Blog, manual de uso y formulario para que un asesor contacte al interesado'
+      ],
+      howItWorks: [
+        'Sitio renderizado en el servidor con páginas por tipo y operación, y URLs legibles para cada propiedad.',
+        'Cuentas de usuario y de socio con distintos permisos sobre el inventario.',
+        'Los planes se contratan y se pagan desde el mismo portal; la interfaz usa Bootstrap.'
+      ],
+      tags: ['Portal inmobiliario', 'Membresías', 'Bootstrap', 'SEO', 'WhatsApp']
     },
     {
       title: 'Empaques y Maquinados N',
       url: 'https://empaquesymaquinadosn.com/',
       group: 'clientes',
       kind: 'Sitio corporativo',
-      description: 'Página web para empresa de empaques y maquinados industriales.',
-      features: ['Catálogo de productos y servicios', 'Galería de trabajos realizados'],
-      howItWorks: [],
-      tags: ['HTML5', 'CSS3', 'JavaScript', 'SEO']
+      description: 'Sitio de Empaques y Maquinados Nacionales, empresa mexicana que fabrica piezas de polímeros a partir de plano o muestra, con materiales certificados por la FDA para empaques de silicón.',
+      features: [
+        'Catálogo de productos: estruidos, empaques tipo clamp, O-rings, retenes, sellos, chupones, cintas, bridas y rodillos',
+        'Maquinados en nylamid, teflón, acetal y acero, y muebles industriales',
+        'Servicios de diseño de empaquetadura, asesoría técnica y toma de medidas en sitio',
+        'Página de materiales y contacto directo por WhatsApp'
+      ],
+      howItWorks: [
+        'Sitio estático en HTML, CSS y JavaScript con Bootstrap, una página por sección.',
+        'El botón de WhatsApp abre la conversación con un mensaje ya iniciado.'
+      ],
+      tags: ['HTML5', 'CSS3', 'Bootstrap', 'JavaScript', 'Industrial']
     },
     {
       title: 'Data Proyectos',
